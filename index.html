@@ -4,9 +4,242 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yunseo Jo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    nav a {
+      margin-left: 22px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 72px 0 96px;
+      font-size: 28px;
+      line-height: 1.35;
+      font-weight: 400;
+    }
+
+    .section-title {
+      margin: 0 0 24px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #666;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 44px 22px;
+    }
+
+    .work-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      margin-bottom: 12px;
+      background: #eee;
+      overflow: hidden;
+    }
+
+    .work-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .work-title {
+      margin: 0 0 4px;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    .meta {
+      margin: 0;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .about {
+      margin-top: 112px;
+      padding-top: 32px;
+      border-top: 1px solid #ddd;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+    }
+
+    .about p {
+      max-width: 680px;
+      margin: 0 0 16px;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .about a {
+      border-bottom: 1px solid #999;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding: 28px 18px 64px;
+      }
+
+      header,
+      .about {
+        display: block;
+      }
+
+      nav {
+        margin-top: 20px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+
+      .intro {
+        margin: 52px 0 72px;
+        font-size: 22px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Yunseo Jo</h1>
-  <p>Work archive and portfolio.</p>
+  <main class="page">
+    <header>
+      <h1>Yunseo Jo</h1>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="mailto:hello@example.com">Contact</a>
+      </nav>
+    </header>
+
+    <section class="intro">
+      <p>Work archive across painting, ceramics, printmaking, and publication.</p>
+    </section>
+
+    <section id="work">
+      <h2 class="section-title">Work Archive</h2>
+
+      <div class="grid">
+        <article>
+          <a class="work-image" href="images/work-01-large.jpg" target="_blank">
+            <img src="images/work-01.jpg" alt="Untitled Work" loading="lazy" onerror="this.style.display='none'">
+          </a>
+          <h3 class="work-title">Untitled Work</h3>
+          <p class="meta">2026 · Painting</p>
+        </article>
+
+        <article>
+          <a class="work-image" href="images/work-02-large.jpg" target="_blank">
+            <img src="images/work-02.jpg" alt="Ceramic Study" loading="lazy" onerror="this.style.display='none'">
+          </a>
+          <h3 class="work-title">Ceramic Study</h3>
+          <p class="meta">2025 · Ceramic</p>
+        </article>
+
+        <article>
+          <a class="work-image" href="images/work-03-large.jpg" target="_blank">
+            <img src="images/work-03.jpg" alt="Printed Matter" loading="lazy" onerror="this.style.display='none'">
+          </a>
+          <h3 class="work-title">Printed Matter</h3>
+          <p class="meta">2025 · Publication</p>
+        </article>
+
+        <article>
+          <a class="work-image" href="images/work-04-large.jpg" target="_blank">
+            <img src="images/work-04.jpg" alt="Plate Series" loading="lazy" onerror="this.style.display='none'">
+          </a>
+          <h3 class="work-title">Plate Series</h3>
+          <p class="meta">2024 · Print</p>
+        </article>
+
+        <article>
+          <a class="work-image" href="images/work-05-large.jpg" target="_blank">
+            <img src="images/work-05.jpg" alt="Surface Study" loading="lazy" onerror="this.style.display='none'">
+          </a>
+          <h3 class="work-title">Surface Study</h3>
+          <p class="meta">2024 · Painting</p>
+        </article>
+
+        <article>
+          <a class="work-image" href="images/work-06-large.jpg" target="_blank">
+            <img src="images/work-06.jpg" alt="Object Archive" loading="lazy" onerror="this.style.display='none'">
+          </a>
+          <h3 class="work-title">Object Archive</h3>
+          <p class="meta">2023 · Mixed Media</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <h2 class="section-title">About</h2>
+      <div>
+        <p>Yunseo Jo is an artist working across painting, ceramics, printmaking, and publication.</p>
+        <p>For inquiries, contact <a href="mailto:hello@example.com">hello@example.com</a>.</p>
+      </div>
+    </section>
+
+    <footer>
+      © Yunseo Jo
+    </footer>
+  </main>
 </body>
 </html>
