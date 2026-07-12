@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV | Yunseo Jo</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    nav a {
+      margin-left: 22px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .title {
+      margin: 72px 0 56px;
+    }
+
+    .title h2 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .cv-section {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+      padding: 28px 0;
+      border-top: 1px solid #ddd;
+    }
+
+    .cv-section h3 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 400;
+      color: #666;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 24px;
+      margin-bottom: 16px;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .year {
+      color: #666;
+    }
+
+    .item p {
+      margin: 0;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding: 28px 18px 64px;
+      }
+
+      header,
+      .cv-section,
+      .item {
+        display: block;
+      }
+
+      nav {
+        margin-top: 20px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+
+      .title {
+        margin: 52px 0 40px;
+      }
+
+      .title h2 {
+        font-size: 28px;
+      }
+
+      .cv-section h3 {
+        margin-bottom: 20px;
+      }
+
+      .year {
+        margin-bottom: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1><a href="index.html">Yunseo Jo</a></h1>
+      <nav>
+        <a href="index.html#work">Work</a>
+        <a href="cv.html">CV</a>
+        <a href="index.html#about">About</a>
+        <a href="mailto:hello@example.com">Contact</a>
+      </nav>
+    </header>
+
+    <section class="title">
+      <h2>CV</h2>
+    </section>
+
+    <section class="cv-section">
+      <h3>Education</h3>
+      <div>
+        <div class="item">
+          <p class="year">2026</p>
+          <p>Degree or Program, School Name, City</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h3>Exhibitions</h3>
+      <div>
+        <div class="item">
+          <p class="year">2026</p>
+          <p><em>Exhibition Title</em>, Venue, City</p>
+        </div>
+        <div class="item">
+          <p class="year">2025</p>
+          <p><em>Exhibition Title</em>, Venue, City</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h3>Projects</h3>
+      <div>
+        <div class="item">
+          <p class="year">2025</p>
+          <p>Project Title, Description or Venue</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h3>Publications</h3>
+      <div>
+        <div class="item">
+          <p class="year">2025</p>
+          <p><em>Publication Title</em>, Publisher or Context</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h3>Awards</h3>
+      <div>
+        <div class="item">
+          <p class="year">2024</p>
+          <p>Award or Grant Name</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © Yunseo Jo
+    </footer>
+  </main>
+</body>
+</html>
