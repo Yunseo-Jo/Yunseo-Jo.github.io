@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Texts — Yunseo Jo</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 22px;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: #333;
+    }
+
+    nav a[aria-current="page"] {
+      color: #b7b7b7;
+    }
+
+    .page-title {
+      margin: 64px 0 72px;
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .text-list {
+      border-top: 1px solid #ddd;
+    }
+
+    .text-item {
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 32px;
+      padding: 30px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .text-type {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #777;
+    }
+
+    .text-title {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.35;
+      font-weight: 400;
+    }
+
+    .text-credit {
+      margin: 0;
+      font-size: 14px;
+      color: #777;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding: 28px 18px 64px;
+      }
+
+      header {
+        display: block;
+        padding-bottom: 40px;
+      }
+
+      nav {
+        justify-content: flex-start;
+        margin-top: 20px;
+      }
+
+      .page-title {
+        margin: 48px 0 56px;
+        font-size: 28px;
+      }
+
+      .text-item {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <p class="site-title">
+        <a href="index.html">Yunseo Jo</a>
+      </p>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html#work">Work</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="texts.html" aria-current="page">Texts</a>
+        <a href="cv.html">CV</a>
+        <a href="mailto:684500@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <h1 class="page-title">Texts</h1>
+
+    <section class="text-list" aria-label="Texts by and about Yunseo Jo">
+      <article class="text-item">
+        <p class="text-type">Statement</p>
+        <div>
+          <h2 class="text-title">Artist Statement</h2>
+          <p class="text-credit">Yunseo Jo</p>
+        </div>
+      </article>
+    </section>
+
+    <footer>© Yunseo Jo</footer>
+  </main>
+</body>
+</html>
