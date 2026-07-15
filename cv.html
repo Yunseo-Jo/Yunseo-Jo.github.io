@@ -46,10 +46,20 @@
       letter-spacing: 0;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 22px;
+    }
+
     nav a {
-      margin-left: 22px;
       font-size: 14px;
       color: #333;
+    }
+
+    nav a[aria-current="page"] {
+      color: #b7b7b7;
     }
 
     .title {
@@ -129,11 +139,11 @@
 
       nav {
         margin-top: 20px;
+        justify-content: flex-start;
       }
 
       nav a {
-        margin-left: 0;
-        margin-right: 16px;
+        margin: 0;
       }
 
       .title {
@@ -158,11 +168,12 @@
   <main class="page">
     <header>
       <h1><a href="index.html">Yunseo Jo</a></h1>
-      <nav>
+      <nav aria-label="Main navigation">
         <a href="index.html#work">Work</a>
-        <a href="cv.html">CV</a>
-        <a href="index.html#about">About</a>
-        <a href="684500.gmail.com">Contact</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="texts.html">Texts</a>
+        <a href="cv.html" aria-current="page">CV</a>
+        <a href="mailto:684500@gmail.com">Contact</a>
       </nav>
     </header>
 
