@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exhibitions — Yunseo Jo</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 22px;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: #333;
+    }
+
+    nav a[aria-current="page"] {
+      color: #b7b7b7;
+    }
+
+    .page-title {
+      margin: 64px 0 72px;
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .exhibition {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+      gap: 36px;
+      padding-bottom: 88px;
+      margin-bottom: 88px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .exhibition:last-child {
+      margin-bottom: 0;
+    }
+
+    .gallery {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #f1f1f1;
+      cursor: pointer;
+      touch-action: pan-y;
+    }
+
+    .gallery:focus-visible {
+      outline: 1px solid #111;
+      outline-offset: 4px;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 700ms ease;
+      pointer-events: none;
+    }
+
+    .slide.is-active {
+      opacity: 1;
+    }
+
+    .exhibition-info {
+      padding-top: 2px;
+    }
+
+    .exhibition-meta {
+      margin: 0 0 14px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #777;
+    }
+
+    .exhibition-title {
+      margin: 0 0 22px;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 400;
+    }
+
+    .venue {
+      margin: 0 0 28px;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .description {
+      max-width: 420px;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @media (max-width: 760px) {
+      .exhibition {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        padding-bottom: 64px;
+        margin-bottom: 64px;
+      }
+
+      .exhibition-info {
+        padding-top: 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding: 28px 18px 64px;
+      }
+
+      header {
+        display: block;
+        padding-bottom: 40px;
+      }
+
+      nav {
+        justify-content: flex-start;
+        margin-top: 20px;
+      }
+
+      .page-title {
+        margin: 48px 0 56px;
+        font-size: 28px;
+      }
+
+      .gallery {
+        aspect-ratio: 3 / 2;
+      }
+
+      .exhibition-title {
+        font-size: 21px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slide {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <p class="site-title">
+        <a href="index.html">Yunseo Jo</a>
+      </p>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html#work">Work</a>
+        <a href="exhibitions.html" aria-current="page">Exhibitions</a>
+        <a href="cv.html">CV</a>
+        <a href="index.html#about">About</a>
+        <a href="mailto:684500@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <h1 class="page-title">Exhibitions</h1>
+
+    <section class="exhibition-list">
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="Humming Room exhibition images">
+          <img class="slide is-active" src="images/humming-room-01.jpg" alt="Humming Room installation view 1" loading="eager" onerror="this.style.display='none'">
+          <img class="slide" src="images/humming-room-02.jpg" alt="Humming Room installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/humming-room-03.jpg" alt="Humming Room installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/humming-room-04.jpg" alt="Humming Room installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/humming-room-05.jpg" alt="Humming Room installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+
+        <div class="exhibition-info">
+          <p class="exhibition-meta">2026 · Group Exhibition</p>
+          <h2 class="exhibition-title">Humming Room</h2>
+          <p class="venue">ULTRA, Seoul</p>
+          <p class="description"></p>
+        </div>
+      </article>
+
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="IT TAKES TWO exhibition images">
+          <img class="slide is-active" src="images/it-takes-two-01.jpg" alt="IT TAKES TWO installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/it-takes-two-02.jpg" alt="IT TAKES TWO installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/it-takes-two-03.jpg" alt="IT TAKES TWO installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/it-takes-two-04.jpg" alt="IT TAKES TWO installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/it-takes-two-05.jpg" alt="IT TAKES TWO installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+
+        <div class="exhibition-info">
+          <p class="exhibition-meta">2025 · Solo Exhibition</p>
+          <h2 class="exhibition-title">IT TAKES TWO</h2>
+          <p class="venue">SAM Art Museum, Seoul</p>
+          <p class="description"></p>
+        </div>
+      </article>
+
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="Dance, Soar, Prickle exhibition images">
+          <img class="slide is-active" src="images/dance-soar-prickle-01.jpg" alt="Dance, Soar, Prickle installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/dance-soar-prickle-02.jpg" alt="Dance, Soar, Prickle installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/dance-soar-prickle-03.jpg" alt="Dance, Soar, Prickle installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/dance-soar-prickle-04.jpg" alt="Dance, Soar, Prickle installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/dance-soar-prickle-05.jpg" alt="Dance, Soar, Prickle installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+
+        <div class="exhibition-info">
+          <p class="exhibition-meta">2024 · Solo Exhibition</p>
+          <h2 class="exhibition-title">Dance, Soar, Prickle</h2>
+          <p class="venue">Gallery Meilan, Seoul</p>
+          <p class="description"></p>
+        </div>
+      </article>
+
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="Tebah exhibition images">
+          <img class="slide is-active" src="images/tebah-01.jpg" alt="Tebah installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/tebah-02.jpg" alt="Tebah installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/tebah-03.jpg" alt="Tebah installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/tebah-04.jpg" alt="Tebah installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/tebah-05.jpg" alt="Tebah installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+
+        <div class="exhibition-info">
+          <p class="exhibition-meta">2024 · Solo Exhibition</p>
+          <h2 class="exhibition-title">Tebah</h2>
+          <p class="venue">RE:PLAT, Seoul</p>
+          <p class="description"></p>
+        </div>
+      </article>
+
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="Whisper Whisper exhibition images">
+          <img class="slide is-active" src="images/whisper-whisper-01.jpg" alt="Whisper Whisper installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/whisper-whisper-02.jpg" alt="Whisper Whisper installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/whisper-whisper-03.jpg" alt="Whisper Whisper installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/whisper-whisper-04.jpg" alt="Whisper Whisper installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/whisper-whisper-05.jpg" alt="Whisper Whisper installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+
+        <div class="exhibition-info">
+          <p class="exhibition-meta">2023 · Solo Exhibition</p>
+          <h2 class="exhibition-title">Whisper Whisper</h2>
+          <p class="venue">COSO, Seoul</p>
+          <p class="description"></p>
+        </div>
+      </article>
+
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="A Small and Tumultuous World exhibition images">
+          <img class="slide is-active" src="images/small-tumultuous-world-01.jpg" alt="A Small and Tumultuous World installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/small-tumultuous-world-02.jpg" alt="A Small and Tumultuous World installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/small-tumultuous-world-03.jpg" alt="A Small and Tumultuous World installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/small-tumultuous-world-04.jpg" alt="A Small and Tumultuous World installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/small-tumultuous-world-05.jpg" alt="A Small and Tumultuous World installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+
+        <div class="exhibition-info">
+          <p class="exhibition-meta">2023 · Duo Exhibition</p>
+          <h2 class="exhibition-title">A Small and Tumultuous World</h2>
+          <p class="venue">Rayprojects, Seoul</p>
+          <p class="description"></p>
+        </div>
+      </article>
+    </section>
+
+    <footer>© Yunseo Jo</footer>
+  </main>
+
+  <script>
+    const galleries = Array.from(document.querySelectorAll(".gallery"));
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const visibility = new Map();
+    const galleryState = new WeakMap();
+    let activeGallery = null;
+
+    galleries.forEach((gallery) => {
+      galleryState.set(gallery, {
+        index: 0,
+        timer: null,
+        paused: false,
+        touchStartX: 0,
+        ignoreClick: false
+      });
+    });
+
+    function showSlide(gallery, nextIndex) {
+      const slides = Array.from(gallery.querySelectorAll(".slide"));
+      const state = galleryState.get(gallery);
+
+      if (slides.length < 2) {
+        return;
+      }
+
+      state.index = (nextIndex + slides.length) % slides.length;
+
+      slides.forEach((slide, index) => {
+        slide.classList.toggle("is-active", index === state.index);
+      });
+    }
+
+    function nextSlide(gallery) {
+      const state = galleryState.get(gallery);
+      showSlide(gallery, state.index + 1);
+    }
+
+    function previousSlide(gallery) {
+      const state = galleryState.get(gallery);
+      showSlide(gallery, state.index - 1);
+    }
+
+    function stopGallery(gallery) {
+      const state = galleryState.get(gallery);
+
+      if (state.timer) {
+        window.clearInterval(state.timer);
+        state.timer = null;
+      }
+    }
+
+    function startGallery(gallery) {
+      const state = galleryState.get(gallery);
+      const slideCount = gallery.querySelectorAll(".slide").length;
+
+      stopGallery(gallery);
+
+      if (
+        prefersReducedMotion ||
+        state.paused ||
+        slideCount < 2 ||
+        document.hidden
+      ) {
+        return;
+      }
+
+      state.timer = window.setInterval(() => {
+        nextSlide(gallery);
+      }, 5500);
+    }
+
+    function chooseActiveGallery() {
+      let bestGallery = null;
+      let bestRatio = 0;
+
+      galleries.forEach((gallery) => {
+        const ratio = visibility.get(gallery) || 0;
+
+        if (ratio > bestRatio) {
+          bestRatio = ratio;
+          bestGallery = gallery;
+        }
+      });
+
+      galleries.forEach(stopGallery);
+      activeGallery = bestRatio >= 0.5 ? bestGallery : null;
+
+      if (activeGallery) {
+        startGallery(activeGallery);
+      }
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        visibility.set(entry.target, entry.intersectionRatio);
+      });
+
+      chooseActiveGallery();
+    }, {
+      threshold: [0, 0.25, 0.5, 0.75, 1]
+    });
+
+    galleries.forEach((gallery) => {
+      const state = galleryState.get(gallery);
+      observer.observe(gallery);
+
+      gallery.addEventListener("mouseenter", () => {
+        state.paused = true;
+        stopGallery(gallery);
+      });
+
+      gallery.addEventListener("mouseleave", () => {
+        state.paused = false;
+        chooseActiveGallery();
+      });
+
+      gallery.addEventListener("focus", () => {
+        state.paused = true;
+        stopGallery(gallery);
+      });
+
+      gallery.addEventListener("blur", () => {
+        state.paused = false;
+        chooseActiveGallery();
+      });
+
+      gallery.addEventListener("click", () => {
+        if (state.ignoreClick) {
+          return;
+        }
+
+        nextSlide(gallery);
+      });
+
+      gallery.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight" || event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          nextSlide(gallery);
+        }
+
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          previousSlide(gallery);
+        }
+      });
+
+      gallery.addEventListener("touchstart", (event) => {
+        state.touchStartX = event.changedTouches[0].clientX;
+        state.paused = true;
+        stopGallery(gallery);
+      }, { passive: true });
+
+      gallery.addEventListener("touchend", (event) => {
+        const distance = event.changedTouches[0].clientX - state.touchStartX;
+
+        if (Math.abs(distance) > 40) {
+          state.ignoreClick = true;
+
+          if (distance < 0) {
+            nextSlide(gallery);
+          } else {
+            previousSlide(gallery);
+          }
+
+          window.setTimeout(() => {
+            state.ignoreClick = false;
+          }, 300);
+        }
+
+        state.paused = false;
+        chooseActiveGallery();
+      }, { passive: true });
+    });
+
+    document.addEventListener("visibilitychange", chooseActiveGallery);
+  </script>
+</body>
+</html>
