@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yunseo Jo</title>
-
   <style>
     * {
       box-sizing: border-box;
@@ -48,17 +47,15 @@
     }
 
     nav a {
-      margin-left: 22px;
       font-size: 14px;
       color: #333;
     }
 
-    .intro {
-      max-width: 720px;
-      margin: 72px 0;
-      font-size: 28px;
-      line-height: 1.35;
-      font-weight: 400;
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 22px;
     }
 
     .section-title {
@@ -69,9 +66,7 @@
     }
 
     .filter-panel {
-      margin-bottom: 52px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid #ddd;
+      margin: 64px 0 64px;
     }
 
     .filter-panel .section-title {
@@ -81,8 +76,8 @@
 
     .filter-row {
       display: grid;
-      grid-template-columns: 120px minmax(0, 1fr);
-      gap: 24px;
+      grid-template-columns: 92px minmax(0, 880px);
+      gap: 28px;
       align-items: start;
     }
 
@@ -91,15 +86,29 @@
     }
 
     .filter-label {
+      position: relative;
       margin: 0;
       font-size: 15px;
       line-height: 1.4;
     }
 
+    .filter-label::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -15px;
+      width: 1px;
+      height: 16px;
+      background: #d5d5d5;
+      transform: translateY(-50%);
+    }
+
     .filter-options {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px 34px;
+      justify-content: space-between;
+      width: 100%;
+      gap: 14px 28px;
     }
 
     .filter-button {
@@ -235,20 +244,15 @@
 
       nav {
         margin-top: 20px;
+        justify-content: flex-start;
       }
 
       nav a {
-        margin-left: 0;
-        margin-right: 16px;
-      }
-
-      .intro {
-        margin: 48px 0 56px;
-        font-size: 22px;
+        margin: 0;
       }
 
       .filter-panel {
-        margin-bottom: 40px;
+        margin: 48px 0 40px;
       }
 
       .filter-row {
@@ -263,7 +267,12 @@
         margin-bottom: 12px;
       }
 
+      .filter-label::after {
+        display: none;
+      }
+
       .filter-options {
+        justify-content: flex-start;
         gap: 10px 22px;
       }
 
@@ -274,139 +283,41 @@
     }
   </style>
 </head>
-
 <body>
   <main class="page">
     <header>
       <h1>Yunseo Jo</h1>
-
       <nav aria-label="Main navigation">
         <a href="#work">Work</a>
+        <a href="exhibitions.html">Exhibitions</a>
         <a href="cv.html">CV</a>
         <a href="#about">About</a>
         <a href="mailto:684500@gmail.com">Contact</a>
       </nav>
     </header>
 
-    <section class="intro">
-      <p>
-        Work archive across painting, ceramics,
-        printmaking, and publication.
-      </p>
-    </section>
-
     <section class="filter-panel" aria-labelledby="filter-title">
       <h2 id="filter-title" class="section-title">Filter</h2>
 
       <div class="filter-row">
         <p class="filter-label">Year</p>
-
         <div class="filter-options" aria-label="Filter by year">
-          <button
-            class="filter-button is-active"
-            type="button"
-            data-filter-group="year"
-            data-filter-value="all"
-            aria-pressed="true"
-          >
-            All
-          </button>
-
-          <button
-            class="filter-button"
-            type="button"
-            data-filter-group="year"
-            data-filter-value="2026"
-            aria-pressed="false"
-          >
-            2026
-          </button>
-
-          <button
-            class="filter-button"
-            type="button"
-            data-filter-group="year"
-            data-filter-value="2025"
-            aria-pressed="false"
-          >
-            2025
-          </button>
-
-          <button
-            class="filter-button"
-            type="button"
-            data-filter-group="year"
-            data-filter-value="2024"
-            aria-pressed="false"
-          >
-            2024
-          </button>
-
-          <button
-            class="filter-button"
-            type="button"
-            data-filter-group="year"
-            data-filter-value="2023"
-            aria-pressed="false"
-          >
-            2023
-          </button>
+          <button class="filter-button is-active" type="button" data-filter-group="year" data-filter-value="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-filter-group="year" data-filter-value="2026" aria-pressed="false">2026</button>
+          <button class="filter-button" type="button" data-filter-group="year" data-filter-value="2025" aria-pressed="false">2025</button>
+          <button class="filter-button" type="button" data-filter-group="year" data-filter-value="2024" aria-pressed="false">2024</button>
+          <button class="filter-button" type="button" data-filter-group="year" data-filter-value="2023" aria-pressed="false">2023</button>
         </div>
       </div>
 
       <div class="filter-row">
         <p class="filter-label">Medium</p>
-
         <div class="filter-options" aria-label="Filter by medium">
-          <button
-            class="filter-button is-active"
-            type="button"
-            data-filter-group="medium"
-            data-filter-value="all"
-            aria-pressed="true"
-          >
-            All
-          </button>
-
-          <button
-            class="filter-button"
-            type="button"
-            data-filter-group="medium"
-            data-filter-value="painting-drawing"
-            aria-pressed="false"
-          >
-            Painting / Drawing
-          </button>
-
-          <button
-            class="filter-button"
-            type="button"
-            data-filter-group="medium"
-            data-filter-value="ceramics"
-            aria-pressed="false"
-          >
-            Ceramics
-          </button>
-
-          <button
-            class="filter-button"
-            type="button"
-            data-filter-group="medium"
-            data-filter-value="printmaking"
-            aria-pressed="false"
-          >
-            Printmaking
-          </button>
-
-          <button
-            class="filter-button"
-            type="button"
-            data-filter-group="medium"
-            data-filter-value="publications"
-            aria-pressed="false"
-          >
-            Publications
-          </button>
+          <button class="filter-button is-active" type="button" data-filter-group="medium" data-filter-value="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-filter-group="medium" data-filter-value="painting-drawing" aria-pressed="false">Painting / Drawing</button>
+          <button class="filter-button" type="button" data-filter-group="medium" data-filter-value="ceramics" aria-pressed="false">Ceramics</button>
+          <button class="filter-button" type="button" data-filter-group="medium" data-filter-value="printmaking" aria-pressed="false">Printmaking</button>
+          <button class="filter-button" type="button" data-filter-group="medium" data-filter-value="publications" aria-pressed="false">Publications</button>
         </div>
       </div>
     </section>
@@ -415,165 +326,63 @@
       <h2 class="section-title work-heading">Work Archive</h2>
 
       <div class="grid">
-        <article
-          class="work-item"
-          data-year="2026"
-          data-medium="ceramics"
-        >
-          <a
-            class="work-image"
-            href="images/work-01.jpg.jpg"
-            target="_blank"
-            rel="noopener"
-          >
-            <img
-              src="images/work-01.jpg.jpg"
-              alt="숨이 머무는 곳"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            >
+        <article class="work-item" data-year="2026" data-medium="ceramics">
+          <a class="work-image" href="images/work-01.jpg.jpg" target="_blank" rel="noopener">
+            <img src="images/work-01.jpg.jpg" alt="숨이 머무는 곳" loading="lazy" onerror="this.style.display='none'">
           </a>
-
           <h3 class="work-title">숨이 머무는 곳</h3>
           <p class="meta">2026 · Unglazed Stoneware</p>
         </article>
 
-        <article
-          class="work-item"
-          data-year="2025"
-          data-medium="ceramics"
-        >
-          <a
-            class="work-image"
-            href="images/work-02.JPG"
-            target="_blank"
-            rel="noopener"
-          >
-            <img
-              src="images/work-02.JPG"
-              alt="Breathing"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            >
+        <article class="work-item" data-year="2025" data-medium="ceramics">
+          <a class="work-image" href="images/work-02.JPG" target="_blank" rel="noopener">
+            <img src="images/work-02.JPG" alt="Breathing" loading="lazy" onerror="this.style.display='none'">
           </a>
-
           <h3 class="work-title">Breathing</h3>
           <p class="meta">2025 · Unglazed Stoneware</p>
         </article>
 
-        <article
-          class="work-item"
-          data-year="2025"
-          data-medium="ceramics"
-        >
-          <a
-            class="work-image"
-            href="images/work-03.jpg"
-            target="_blank"
-            rel="noopener"
-          >
-            <img
-              src="images/work-03.jpg"
-              alt="Landing"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            >
+        <article class="work-item" data-year="2025" data-medium="ceramics">
+          <a class="work-image" href="images/work-03.jpg" target="_blank" rel="noopener">
+            <img src="images/work-03.jpg" alt="Landing" loading="lazy" onerror="this.style.display='none'">
           </a>
-
           <h3 class="work-title">Landing</h3>
           <p class="meta">2025 · Clay</p>
         </article>
 
-        <article
-          class="work-item"
-          data-year="2024"
-          data-medium="painting-drawing"
-        >
-          <a
-            class="work-image"
-            href="images/work-04.jpg"
-            target="_blank"
-            rel="noopener"
-          >
-            <img
-              src="images/work-04.jpg"
-              alt="숲"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            >
+        <article class="work-item" data-year="2024" data-medium="painting-drawing">
+          <a class="work-image" href="images/work-04.jpg" target="_blank" rel="noopener">
+            <img src="images/work-04.jpg" alt="숲" loading="lazy" onerror="this.style.display='none'">
           </a>
-
           <h3 class="work-title">숲</h3>
           <p class="meta">2024 · Mixed media on paper</p>
         </article>
 
-        <article
-          class="work-item"
-          data-year="2024"
-          data-medium="painting-drawing"
-        >
-          <a
-            class="work-image"
-            href="images/work-05-large.jpg"
-            target="_blank"
-            rel="noopener"
-          >
-            <img
-              src="images/work-05.jpg"
-              alt="Surface Study"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            >
+        <article class="work-item" data-year="2024" data-medium="painting-drawing">
+          <a class="work-image" href="images/work-05-large.jpg" target="_blank" rel="noopener">
+            <img src="images/work-05.jpg" alt="Surface Study" loading="lazy" onerror="this.style.display='none'">
           </a>
-
           <h3 class="work-title">Surface Study</h3>
           <p class="meta">2024 · Painting</p>
         </article>
 
-        <article
-          class="work-item"
-          data-year="2023"
-          data-medium="painting-drawing"
-        >
-          <a
-            class="work-image"
-            href="images/work-06-large.jpg"
-            target="_blank"
-            rel="noopener"
-          >
-            <img
-              src="images/work-06.jpg"
-              alt="Object Archive"
-              loading="lazy"
-              onerror="this.style.display='none'"
-            >
+        <article class="work-item" data-year="2023" data-medium="painting-drawing">
+          <a class="work-image" href="images/work-06-large.jpg" target="_blank" rel="noopener">
+            <img src="images/work-06.jpg" alt="Object Archive" loading="lazy" onerror="this.style.display='none'">
           </a>
-
           <h3 class="work-title">Object Archive</h3>
           <p class="meta">2023 · Mixed Media</p>
         </article>
       </div>
 
-      <p class="empty-state" hidden>
-        No works in this selection.
-      </p>
+      <p class="empty-state" hidden>No works in this selection.</p>
     </section>
 
     <section id="about" class="about">
       <h2 class="section-title">About</h2>
-
       <div>
-        <p>
-          Yunseo Jo is an artist working across painting,
-          ceramics, printmaking, and publication.
-        </p>
-
-        <p>
-          For inquiries, contact
-          <a href="mailto:684500@gmail.com">
-            684500@gmail.com
-          </a>.
-        </p>
+        <p>Yunseo Jo is an artist working across painting, ceramics, printmaking, and publication.</p>
+        <p>For inquiries, contact <a href="mailto:684500@gmail.com">684500@gmail.com</a>.</p>
       </div>
     </section>
 
@@ -588,32 +397,18 @@
       medium: "all"
     };
 
-    const filterButtons =
-      document.querySelectorAll(".filter-button");
-
-    const workItems =
-      document.querySelectorAll(".work-item");
-
-    const emptyState =
-      document.querySelector(".empty-state");
+    const filterButtons = document.querySelectorAll(".filter-button");
+    const workItems = document.querySelectorAll(".work-item");
+    const emptyState = document.querySelector(".empty-state");
 
     function applyFilters() {
       let visibleCount = 0;
 
       workItems.forEach((item) => {
-        const matchesYear =
-          activeFilters.year === "all" ||
-          item.dataset.year === activeFilters.year;
-
-        const itemMedia =
-          item.dataset.medium.split(" ");
-
-        const matchesMedium =
-          activeFilters.medium === "all" ||
-          itemMedia.includes(activeFilters.medium);
-
-        const shouldShow =
-          matchesYear && matchesMedium;
+        const matchesYear = activeFilters.year === "all" || item.dataset.year === activeFilters.year;
+        const itemMedia = item.dataset.medium.split(" ");
+        const matchesMedium = activeFilters.medium === "all" || itemMedia.includes(activeFilters.medium);
+        const shouldShow = matchesYear && matchesMedium;
 
         item.hidden = !shouldShow;
 
@@ -628,28 +423,13 @@
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const group = button.dataset.filterGroup;
+        activeFilters[group] = button.dataset.filterValue;
 
-        activeFilters[group] =
-          button.dataset.filterValue;
-
-        document
-          .querySelectorAll(
-            `[data-filter-group="${group}"]`
-          )
-          .forEach((groupButton) => {
-            const isActive =
-              groupButton === button;
-
-            groupButton.classList.toggle(
-              "is-active",
-              isActive
-            );
-
-            groupButton.setAttribute(
-              "aria-pressed",
-              String(isActive)
-            );
-          });
+        document.querySelectorAll(`[data-filter-group="${group}"]`).forEach((groupButton) => {
+          const isActive = groupButton === button;
+          groupButton.classList.toggle("is-active", isActive);
+          groupButton.setAttribute("aria-pressed", String(isActive));
+        });
 
         applyFilters();
       });
