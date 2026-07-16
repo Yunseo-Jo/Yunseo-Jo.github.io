@@ -282,6 +282,7 @@
       font-size: 12px;
       line-height: 1.5;
       color: #666;
+      white-space: pre-line;
     }
 
     .lightbox-close {
@@ -437,11 +438,12 @@
 
       <div class="grid">
         <article class="work-item" data-year="2026" data-medium="ceramics">
-          <a class="work-image" href="images/work-01.jpg.jpg" target="_blank" rel="noopener" data-lightbox="work-01">
+          <a class="work-image" href="images/work-01.jpg.jpg" target="_blank" rel="noopener">
             <img src="images/work-01.jpg.jpg" alt="숨이 머무는 곳" loading="lazy" onerror="this.style.display='none'">
           </a>
           <h3 class="work-title">숨이 머무는 곳</h3>
           <p class="meta">2026 · Unglazed Stoneware</p>
+          <p class="meta dimensions"><!-- 사이즈 입력 --></p>
         </article>
 
         <article class="work-item" data-year="2025" data-medium="ceramics">
@@ -450,6 +452,7 @@
           </a>
           <h3 class="work-title">Breathing</h3>
           <p class="meta">2025 · Unglazed Stoneware</p>
+          <p class="meta dimensions"><!-- 사이즈 입력 --></p>
         </article>
 
         <article class="work-item" data-year="2026" data-medium="ceramics">
@@ -458,6 +461,7 @@
           </a>
           <h3 class="work-title">Landing</h3>
           <p class="meta">2026 · Clay</p>
+          <p class="meta dimensions">Dimensions variable</p>
         </article>
 
         <article class="work-item" data-year="2024" data-medium="painting-drawing">
@@ -466,6 +470,7 @@
           </a>
           <h3 class="work-title">숲</h3>
           <p class="meta">2024 · Mixed media on paper</p>
+          <p class="meta dimensions">38.5 27.8 cm</p>
         </article>
 
         <article class="work-item" data-year="2023" data-medium="ceramics">
@@ -474,6 +479,7 @@
           </a>
           <h3 class="work-title">산</h3>
           <p class="meta">2023 · Ceramic</p>
+          <p class="meta dimensions">21 x 17 x 26 cm</p>
         </article>
 
         <article class="work-item" data-year="2025" data-medium="painting-drawing">
@@ -482,6 +488,7 @@
           </a>
           <h3 class="work-title">새벽</h3>
           <p class="meta">2025 · oil on canvas</p>
+          <p class="meta dimensions">130.3 x 80.3 cm</p>
         </article>
 
         <article class="work-item" data-year="2024" data-medium="painting-drawing">
@@ -490,6 +497,7 @@
   </a>
   <h3 class="work-title">모두 살기 위해 태어난 거야</h3>
   <p class="meta">2024 · Japanese ink on paper</p>
+  <p class="meta dimensions">42 x 30 cm</p>
 </article>
 
                       <article class="work-item" data-year="2025" data-medium="painting-drawing">
@@ -498,6 +506,7 @@
   </a>
   <h3 class="work-title">I found you</h3>
   <p class="meta">2025 · oil on panel</p>
+  <p class="meta dimensions">50 x 50cm</p>
 </article>
         
         <article class="work-item" data-year="2024" data-medium="painting-drawing">
@@ -509,6 +518,7 @@
   </a>
   <h3 class="work-title">그곳에 다다를 때까지</h3>
   <p class="meta">2024 · pencil and watercolor on paper</p>
+  <p class="meta dimensions">17.5 x 29.8 cm</p>
 </article>
 
                 <article class="work-item" data-year="2025" data-medium="painting-drawing">
@@ -517,6 +527,7 @@
   </a>
   <h3 class="work-title">Something's coming</h3>
   <p class="meta">2025 · oil on canvas</p>
+  <p class="meta dimensions">130.3 x 80.3 cm</p>
 </article>
 
         <article class="work-item" data-year="2025" data-medium="ceramics">
@@ -525,6 +536,7 @@
   </a>
   <h3 class="work-title">언덕</h3>
   <p class="meta">2025 · Ceramic</p>
+  <p class="meta dimensions"><!-- 사이즈 입력 --></p>
 </article>
 
                <article class="work-item" data-year="2025" data-medium="ceramics">
@@ -533,6 +545,7 @@
   </a>
   <h3 class="work-title">Titan</h3>
   <p class="meta">2025 · Ceramic</p>
+  <p class="meta dimensions"><!-- 사이즈 입력 --></p>
 </article>
       </div>
 
@@ -552,14 +565,14 @@
     </footer>
   </main>
 
-  <div class="lightbox" id="work-01-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-01-lightbox-title">
+  <div class="lightbox" id="work-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-lightbox-title">
     <button class="lightbox-close" type="button" aria-label="Close enlarged work">&times;</button>
     <div class="lightbox-inner">
       <div class="lightbox-image-wrap">
         <img class="lightbox-image" src="" alt="">
       </div>
       <div class="lightbox-caption">
-        <h2 class="lightbox-title" id="work-01-lightbox-title"></h2>
+        <h2 class="lightbox-title" id="work-lightbox-title"></h2>
         <p class="lightbox-meta"></p>
       </div>
     </div>
@@ -609,34 +622,38 @@
       });
     });
 
-    const work01Trigger = document.querySelector('[data-lightbox="work-01"]');
-    const work01Lightbox = document.querySelector("#work-01-lightbox");
-    const lightboxClose = work01Lightbox.querySelector(".lightbox-close");
-    const lightboxImage = work01Lightbox.querySelector(".lightbox-image");
-    const lightboxTitle = work01Lightbox.querySelector(".lightbox-title");
-    const lightboxMeta = work01Lightbox.querySelector(".lightbox-meta");
+    const workTriggers = document.querySelectorAll("#work .work-image");
+    const workLightbox = document.querySelector("#work-lightbox");
+    const lightboxClose = workLightbox.querySelector(".lightbox-close");
+    const lightboxImage = workLightbox.querySelector(".lightbox-image");
+    const lightboxTitle = workLightbox.querySelector(".lightbox-title");
+    const lightboxMeta = workLightbox.querySelector(".lightbox-meta");
     let lightboxPreviousFocus = null;
 
-    function openWork01Lightbox(event) {
+    function openWorkLightbox(event) {
       event.preventDefault();
 
-      const workItem = work01Trigger.closest(".work-item");
-      const thumbnail = work01Trigger.querySelector("img");
+      const trigger = event.currentTarget;
+      const workItem = trigger.closest(".work-item");
+      const thumbnail = trigger.querySelector("img");
+      const captionLines = Array.from(workItem.querySelectorAll(".meta"))
+        .map((line) => line.textContent.trim())
+        .filter(Boolean);
 
       lightboxPreviousFocus = document.activeElement;
-      lightboxImage.src = work01Trigger.href;
+      lightboxImage.src = trigger.href;
       lightboxImage.alt = thumbnail.alt;
       lightboxTitle.textContent = workItem.querySelector(".work-title").textContent;
-      lightboxMeta.textContent = workItem.querySelector(".meta").textContent;
-      work01Lightbox.classList.add("is-open");
-      work01Lightbox.setAttribute("aria-hidden", "false");
+      lightboxMeta.textContent = captionLines.join("\n");
+      workLightbox.classList.add("is-open");
+      workLightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("lightbox-open");
       lightboxClose.focus();
     }
 
-    function closeWork01Lightbox() {
-      work01Lightbox.classList.remove("is-open");
-      work01Lightbox.setAttribute("aria-hidden", "true");
+    function closeWorkLightbox() {
+      workLightbox.classList.remove("is-open");
+      workLightbox.setAttribute("aria-hidden", "true");
       document.body.classList.remove("lightbox-open");
       lightboxImage.src = "";
 
@@ -645,18 +662,21 @@
       }
     }
 
-    work01Trigger.addEventListener("click", openWork01Lightbox);
-    lightboxClose.addEventListener("click", closeWork01Lightbox);
+    workTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", openWorkLightbox);
+    });
 
-    work01Lightbox.addEventListener("click", (event) => {
-      if (event.target === work01Lightbox) {
-        closeWork01Lightbox();
+    lightboxClose.addEventListener("click", closeWorkLightbox);
+
+    workLightbox.addEventListener("click", (event) => {
+      if (event.target === workLightbox) {
+        closeWorkLightbox();
       }
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && work01Lightbox.classList.contains("is-open")) {
-        closeWork01Lightbox();
+      if (event.key === "Escape" && workLightbox.classList.contains("is-open")) {
+        closeWorkLightbox();
       }
     });
   </script>
