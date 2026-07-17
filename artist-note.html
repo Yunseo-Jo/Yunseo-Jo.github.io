@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artist's Note — Yunseo Jo</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 22px;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: #333;
+    }
+
+    nav a[aria-current="page"] {
+      color: #b7b7b7;
+    }
+
+    .page-title {
+      margin: 64px 0 72px;
+    }
+
+    .page-title h1 {
+      margin: 0 0 12px;
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .page-title p {
+      margin: 0;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .text-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-top: 30px;
+    }
+
+    .text-nav a {
+      font-size: 13px;
+      color: #333;
+    }
+
+    .text-nav a:hover,
+    .text-nav a:focus-visible {
+      color: #777;
+    }
+
+    .text-nav a:focus-visible {
+      outline: 1px solid #111;
+      outline-offset: 4px;
+    }
+
+    .text-nav a[aria-current="page"] {
+      color: #b7b7b7;
+    }
+
+    .note-section {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 760px);
+      gap: 40px;
+      padding: 40px 0 72px;
+      border-top: 1px solid #ddd;
+    }
+
+    .note-date {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 400;
+      color: #666;
+    }
+
+    .note-body {
+      max-width: 760px;
+    }
+
+    .note-title {
+      margin: 0 0 30px;
+      font-size: 16px;
+      line-height: 1.55;
+      font-weight: 400;
+    }
+
+    .note-body p {
+      margin: 0 0 1.05em;
+      font-size: 14px;
+      line-height: 1.85;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .note-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding: 28px 18px 64px;
+      }
+
+      header {
+        display: block;
+        padding-bottom: 40px;
+      }
+
+      nav {
+        justify-content: flex-start;
+        margin-top: 20px;
+      }
+
+      .page-title {
+        margin: 48px 0 56px;
+      }
+
+      .page-title h1 {
+        font-size: 28px;
+      }
+
+      .note-section {
+        display: block;
+        padding: 32px 0 56px;
+      }
+
+      .note-date {
+        margin-bottom: 28px;
+      }
+
+      .note-body p {
+        line-height: 1.8;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <p class="site-title"><a href="index.html">Yunseo Jo</a></p>
+      <nav aria-label="Main navigation">
+        <a href="index.html#work">Work</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="texts.html" aria-current="page">Texts</a>
+        <a href="cv.html">CV</a>
+        <a href="mailto:684500@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <section class="page-title">
+      <h1>작가노트 / Artist's Note</h1>
+      <p>2025–2026</p>
+      <nav class="text-nav" aria-label="Text categories">
+        <a href="texts.html">Artist Statement</a>
+        <a href="artist-note.html" aria-current="page">Artist's Note</a>
+        <a href="exhibition-statements.html">Exhibition Statements</a>
+      </nav>
+    </section>
+
+    <section class="note-section">
+      <h2 class="note-date">2026. 7</h2>
+      <div class="note-body">
+        <p>작업 안에서 개는 끊임없이 곳곳을 오가며 이야기를 전한다. 내게는 16년간 함께해 오고 있는 반려견이 있는데, 그 까닭에 닿지 않을 것만 같은 것들이 닿는 것, 또 이해되지 않을 것 같던 것이 이해되는 일을 그려내는 데 자연스레 개가 등장한다.</p>
+
+        <p>내게 있어 개는 인간과 비인간의 어디에도 속하지 않은, 경계에 머무는 존재처럼 느껴진다. 또 세상에 대한 지치지 않는 기대와 끝없는 파고듦을 보여주는 신비롭고 이상적인 존재이기도 하다…</p>
+      </div>
+    </section>
+
+    <section class="note-section">
+      <h2 class="note-date">2026. 5</h2>
+      <div class="note-body">
+        <p>최근 나의 삶에 죽음이 가까워진 존재들이 부쩍 많아졌다. 그들과 가까이 지내면서 그 시간을 조금 더 섬세하게 헤아리게 되었는데, 죽음에 가까운 시간은 구불거리면서 흐른다는 것을 발견했다. 이리저리 줄기를 뻗으며 자라나는 식물처럼, 빠르게 움직이면서도 이곳저곳을 열심히 건드린다.</p>
+
+        <p>작업을 통해 꾸준히 존재들 간의 관계를 그려내고 그로부터 발생하는 세계를 지탱하는 힘, 이어지는 숨들을 이야기하면서 결국 나는 생과 죽음 사이의 여러 장면들을 포착하고 있음을 깨달았다. 그 모든 장면들을 통과하며 흐르는 숨. 그 숨은 그것이 사라지는 순간인 죽음과 피어나는 순간인 태어남에 모두 가까이 자리하고 있는데, 그것이 바로 작업에서 숨을 이야기하는 것이 중요한 이유다. 그러나 최근에 나는 내가 숨이 꺼진 것들을 '제대로' 마주해 본 적이 있는지에 대해 생각했고, 그것을 어떻게 다루고 있는지에 대해 고민하게 되었다. 죽음을 제대로 마주한다는 건 어떤 걸까? 숨이 꺼진 그 모습을 찬찬히 살펴보는 일? 아니면 그 사실을 온 마음으로 받아들이는 것?</p>
+
+        <p>작업을 하나씩 꺼내어 보면서, 장면들과 그 안의 존재들이 어떤 시간에 놓여 있는지를 다시금 살펴보았다. 대부분은 숨이 가장 활발한 때, 생이 가장 환하게 빛나는 순간들이다. 혹은 죽음이 이미 지나간 자리, 숨이 다시 피어나는 장면들. 모두 죽음이 가장 가까워진 순간을 조금씩 비껴나간 장면들.</p>
+
+        <p>그것은 아직 직면해 보지 못한, 멀리서만 접한 죽음들을 표현하는 데에 있어 생기는 머뭇거림일까? 아니면 죽음 근처에서 일부러 미끄러지면서 그것을 넘어설 수 있는 것으로 만들어 보려는 것일까? 만약 그렇다면 생과 죽음의 반복, 그 연결을 이야기하면서 아직 죽음을 극복할-혹은 극복해야만 하는 것으로 받아들이고 있는 걸까? 함께 지내는 존재들에게 죽음이 언제고 찾아올 수 있는 지금, 그것을 가만히 들여다보면서 조금이나마 단서를 얻어 보려고 한다. 죽음이 아니라, 그 근처의 시간과 순간들을 들여다보면서.</p>
+
+        <p>숨이 머물고 있는 장면을 만들고 그리는 것은 내게 여전히 큰 의미를 지닌다. 누르고 이은 선들로, 치대며 쌓아 올린 흙으로 그 장면들을 꺼내어 놓기. 그것은 붙잡으려는 일임과 동시에 보내 주려는 일이다. 한순간을 포착해 오래 응시하고 들여다봄으로써 그다음에 찾아오는 순간들을 마주할 준비를 하는 일. 그것이 결국 내가 세상을 읽고 살아가는 방식이기도 하다.</p>
+      </div>
+    </section>
+
+    <section class="note-section">
+      <h2 class="note-date">2026. 4</h2>
+      <div class="note-body">
+        <h3 class="note-title">〈Landing〉에 덧붙여</h3>
+
+        <p>그동안 존재들 간의 관계를 통해 숨을 이어가고 세계를 지탱하는 힘에 대해 꾸준히 이야기해 오면서, 이미지 사이에 흐르는 미세한 숨들을 포착하는 일에도 자연히 관심을 가지게 되었다. 〈Landing〉에서는 소성하지 않은 흙 조각을 통해 이미지의 완전한 정착을 미루어 보려고, 혹은 그것에 실패해 보려고 했다. 그 틈으로 무엇을 불러들일 수 있을까… 서로 다른 종류의 흙덩이들을 전시장으로 옮겨 온 뒤 문대고 덧바르고, 쌓아 올리며 조각을 시작했다.</p>
+
+        <p>흙으로 만들어진 형상은 손짓이 멈출 때마다 조금씩 굳어지면서 순간마다 정지된 장면을 이루어 나가면서도, 소성하지 않았다는 이유로 완전히 무너져 내릴 수 있다는 사실을 품고 있었다. 흙으로 무언가를 만든 뒤 굽지 않는다는 것은 그 자체로 취약함에 대한 방증임과 동시에 견고한 조각으로서의 자격을 상실하게 되는 일이기도 하다. 하지만 소성을 위한 조건, 이를테면 속을 비워 내거나 접합 부위를 신경 써서 다듬는 일, 건조 조건을 조절하는 일 등을 생각하지 않아도 될 때에, 조각들은 훨씬 자유롭게 만들어졌다. (여기서 자유롭다는 표현은 드로잉에 가깝다는 의미로 사용했다.)</p>
+
+        <p>그렇게 만들어진 이 조각-장면은 공간의 온도와 습도, 그리고 오고 가는 것들을 계속해서 온몸으로 스며들게 하면서, 언제든지 깨지고 허물어져서 되돌아갈 여지를 남긴 채 눈앞의 이미지를 계속해서 불안정한 것으로 흔들어 놓았다. 이러한 흔들림은 이 장면을 지나가고 있는-멀어지는 사건, 그리하여 이미 과거에 다다르고 있는 것으로 바라보게 만들었는데, 오히려 그 지점이 이 장면을 진정 '살아 있는' 것으로 만들어 주는 듯했다. 사라질 이미지, 더 나아가 죽음을 끝에 둔 존재들에 대한 애틋함. 이미지라는 것은 발생과 동시에 나에게 이미 살아 있는 것으로 다가온다는 것을 알 수 있었다.</p>
+      </div>
+    </section>
+
+    <section class="note-section">
+      <h2 class="note-date">2025</h2>
+      <div class="note-body">
+        <h3 class="note-title">〈숨이 머무는 곳〉에 덧붙여</h3>
+
+        <p>서로 의지하고 끌어안고, 마주하고 애도하는 존재들이 거대한 어깨와 등을 타고 돋아난다. 숨들이 피어나고 꺼지고, 구멍과 틈 사이로 새로운 숨들이 흘러간다.</p>
+
+        <p>아래로부터 위로, 또 옆으로 흙을 쌓아 올리며 축축한 면과 단단한 면을 수없이 맞닥뜨리며 숨이 차오르는 것을 느낄 수 있었다. 바로 이 지점에서, 흙을 다루는 동안 일어났던 이 모든 일에서, 나는 세계와의 관계를 다시 상기한다.</p>
+
+        <p>수많은 손짓을 보태 물컹한 것들을 서로 잇대어 단단하게 하고, 무너진 곳에는 새로운 살을 채워 넣는다. 아무것도 고정되어 있지 않고 계속해서 흐르는, 그래서 다음에 올 것들을 다시 기대해 볼 수 있게끔 하는 것, 그것이 세계이고, 우리에게는 그저 그 안에서 잠시 숨을 고를 수 있는 머물 곳이 필요하다.</p>
+      </div>
+    </section>
+
+    <section class="note-section">
+      <h2 class="note-date">2025</h2>
+      <div class="note-body">
+        <h3 class="note-title">〈Breathing〉에 덧붙여</h3>
+
+        <p>코일을 쌓아 올리며 만든 탑은, 수많은 장면들을 끌어안으며 유기체와 같은 모습으로 변화한다. 숨들은 무수히 많은 구멍들을 통해 이동하고, 또 그것들이 모여 또 하나의 거대한 숨이 된다. 탑을 서 있게 하는 것은 또다시 서로를 지탱하는 존재들로부터 나오는 힘이다.</p>
+      </div>
+    </section>
+
+    <footer>© Yunseo Jo</footer>
+  </main>
+</body>
+</html>
