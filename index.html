@@ -451,7 +451,8 @@
       }
 
       .filter-label {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
+        font-size: 14px;
       }
 
       .filter-label::after {
@@ -460,7 +461,22 @@
 
       .filter-options {
         justify-content: flex-start;
-        gap: 10px 22px;
+        flex-wrap: nowrap;
+        gap: 8px 12px;
+        width: 100%;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .filter-options::-webkit-scrollbar {
+        display: none;
+      }
+
+      .filter-button {
+        flex: 0 0 auto;
+        font-size: 12px;
+        white-space: nowrap;
       }
 
       .filter-row-content {
@@ -563,11 +579,11 @@
       <div class="grid">
         <article class="work-item" data-year="2026" data-medium="ceramics">
           <a class="work-image" href="images/work-01.jpg.jpg" target="_blank" rel="noopener">
-            <img src="images/work-01.jpg.jpg" alt="숨이 머무는 곳" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/work-01.jpg.jpg" alt="?⑥씠 癒몃Т??怨? loading="lazy" onerror="this.style.display='none'">
           </a>
-          <h3 class="work-title">숨이 머무는 곳</h3>
-          <p class="meta">2026 · Unglazed Stoneware</p>
-          <p class="meta dimensions"><!-- 사이즈 입력 --></p>
+          <h3 class="work-title">?⑥씠 癒몃Т??怨?/h3>
+          <p class="meta">2026 쨌 Unglazed Stoneware</p>
+          <p class="meta dimensions"><!-- ?ъ씠利??낅젰 --></p>
         </article>
 
         <article class="work-item" data-year="2025" data-medium="ceramics">
@@ -575,8 +591,8 @@
             <img src="images/work-02.JPG" alt="Breathing" loading="lazy" onerror="this.style.display='none'">
           </a>
           <h3 class="work-title">Breathing</h3>
-          <p class="meta">2025 · Unglazed Stoneware</p>
-          <p class="meta dimensions"><!-- 사이즈 입력 --></p>
+          <p class="meta">2025 쨌 Unglazed Stoneware</p>
+          <p class="meta dimensions"><!-- ?ъ씠利??낅젰 --></p>
         </article>
 
         <article class="work-item" data-year="2026" data-medium="ceramics">
@@ -584,44 +600,44 @@
             <img src="images/work-03.jpg" alt="Landing" loading="lazy" onerror="this.style.display='none'">
           </a>
           <h3 class="work-title">Landing</h3>
-          <p class="meta">2026 · Clay</p>
+          <p class="meta">2026 쨌 Clay</p>
           <p class="meta dimensions">Dimensions variable</p>
         </article>
 
         <article class="work-item" data-year="2024" data-medium="painting-drawing">
           <a class="work-image" href="images/work-04.jpg" target="_blank" rel="noopener">
-            <img src="images/work-04.jpg" alt="숲" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/work-04.jpg" alt="?? loading="lazy" onerror="this.style.display='none'">
           </a>
-          <h3 class="work-title">숲</h3>
-          <p class="meta">2024 · Mixed media on paper</p>
-          <p class="meta dimensions">38.5 × 27.8 cm</p>
+          <h3 class="work-title">??/h3>
+          <p class="meta">2024 쨌 Mixed media on paper</p>
+          <p class="meta dimensions">38.5 횞 27.8 cm</p>
         </article>
 
         <article class="work-item" data-year="2023" data-medium="ceramics">
           <a class="work-image" href="images/work-05.jpg" target="_blank" rel="noopener">
-            <img src="images/work-05.jpg" alt="산" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/work-05.jpg" alt="?? loading="lazy" onerror="this.style.display='none'">
           </a>
-          <h3 class="work-title">산</h3>
-          <p class="meta">2023 · Ceramic</p>
-          <p class="meta dimensions">21 × 17 × 26 cm</p>
+          <h3 class="work-title">??/h3>
+          <p class="meta">2023 쨌 Ceramic</p>
+          <p class="meta dimensions">21 횞 17 횞 26 cm</p>
         </article>
 
         <article class="work-item" data-year="2025" data-medium="painting-drawing">
           <a class="work-image" href="images/work-06.jpg" target="_blank" rel="noopener">
-            <img src="images/work-06.jpg" alt="새벽" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/work-06.jpg" alt="?덈꼍" loading="lazy" onerror="this.style.display='none'">
           </a>
-          <h3 class="work-title">새벽</h3>
-          <p class="meta">2025 · oil on canvas</p>
-          <p class="meta dimensions">130.3 × 80.3 cm</p>
+          <h3 class="work-title">?덈꼍</h3>
+          <p class="meta">2025 쨌 oil on canvas</p>
+          <p class="meta dimensions">130.3 횞 80.3 cm</p>
         </article>
 
         <article class="work-item" data-year="2024" data-medium="painting-drawing">
   <a class="work-image" href="images/work-07.jpg" target="_blank" rel="noopener">
-    <img src="images/work-07.jpg" alt="모두 살기 위해 태어난 거야" loading="lazy" onerror="this.style.display='none'">
+    <img src="images/work-07.jpg" alt="紐⑤몢 ?닿린 ?꾪빐 ?쒖뼱??嫄곗빞" loading="lazy" onerror="this.style.display='none'">
   </a>
-  <h3 class="work-title">모두 살기 위해 태어난 거야</h3>
-  <p class="meta">2024 · Japanese ink on paper</p>
-  <p class="meta dimensions">42 × 30 cm</p>
+  <h3 class="work-title">紐⑤몢 ?닿린 ?꾪빐 ?쒖뼱??嫄곗빞</h3>
+  <p class="meta">2024 쨌 Japanese ink on paper</p>
+  <p class="meta dimensions">42 횞 30 cm</p>
 </article>
 
                       <article class="work-item" data-year="2025" data-medium="painting-drawing">
@@ -629,20 +645,20 @@
     <img src="images/work-08.jpg" alt="I found you" loading="lazy" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">I found you</h3>
-  <p class="meta">2025 · oil on panel</p>
-  <p class="meta dimensions">50 × 50 cm</p>
+  <p class="meta">2025 쨌 oil on panel</p>
+  <p class="meta dimensions">50 횞 50 cm</p>
 </article>
         
         <article class="work-item" data-year="2024" data-medium="painting-drawing">
   <a class="work-image" href="images/work-09.jpg" target="_blank" rel="noopener">
-    <img src="images/work-09.jpg" alt="그곳에 다다를 때까지"
+    <img src="images/work-09.jpg" alt="洹멸납???ㅻ떎瑜??뚭퉴吏"
       loading="lazy" style="
       object-position: left center"
       onerror="this.style.display='none'">
   </a>
-  <h3 class="work-title">그곳에 다다를 때까지</h3>
-  <p class="meta">2024 · pencil and watercolor on paper</p>
-  <p class="meta dimensions">17.5 × 29.8 cm</p>
+  <h3 class="work-title">洹멸납???ㅻ떎瑜??뚭퉴吏</h3>
+  <p class="meta">2024 쨌 pencil and watercolor on paper</p>
+  <p class="meta dimensions">17.5 횞 29.8 cm</p>
 </article>
 
                 <article class="work-item" data-year="2025" data-medium="painting-drawing">
@@ -650,17 +666,17 @@
     <img src="images/work-10.jpg" alt="Something's coming" loading="lazy" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">Something's coming</h3>
-  <p class="meta">2025 · oil on canvas</p>
-  <p class="meta dimensions">130.3 × 80.3 cm</p>
+  <p class="meta">2025 쨌 oil on canvas</p>
+  <p class="meta dimensions">130.3 횞 80.3 cm</p>
 </article>
 
         <article class="work-item" data-year="2025" data-medium="ceramics">
   <a class="work-image" href="images/work-11.jpg" target="_blank" rel="noopener">
-    <img src="images/work-11.jpg" alt="언덕" loading="lazy" onerror="this.style.display='none'">
+    <img src="images/work-11.jpg" alt="?몃뜒" loading="lazy" onerror="this.style.display='none'">
   </a>
-  <h3 class="work-title">언덕</h3>
-  <p class="meta">2025 · Ceramic</p>
-  <p class="meta dimensions"><!-- 사이즈 입력 --></p>
+  <h3 class="work-title">?몃뜒</h3>
+  <p class="meta">2025 쨌 Ceramic</p>
+  <p class="meta dimensions"><!-- ?ъ씠利??낅젰 --></p>
 </article>
 
                <article class="work-item" data-year="2025" data-medium="ceramics">
@@ -668,8 +684,8 @@
     <img src="images/work-12.jpg" alt="Titan" loading="lazy" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">Titan</h3>
-  <p class="meta">2025 · Ceramic</p>
-  <p class="meta dimensions"><!-- 사이즈 입력 --></p>
+  <p class="meta">2025 쨌 Ceramic</p>
+  <p class="meta dimensions"><!-- ?ъ씠利??낅젰 --></p>
 </article>
 
                        <article class="work-item" data-year="2026" data-medium="painting-drawing">
@@ -677,17 +693,17 @@
     <img src="images/work-13.jpg" alt="Here, There and Everywhere" loading="lazy" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">Here, There and Everywhere</h3>
-  <p class="meta">2026 · Wall painting</p>
-  <p class="meta dimensions"><!-- 사이즈 입력 --></p>
+  <p class="meta">2026 쨌 Wall painting</p>
+  <p class="meta dimensions"><!-- ?ъ씠利??낅젰 --></p>
 </article>
 
                        <article class="work-item" data-year="2024" data-medium="painting-drawing">
   <a class="work-image" href="images/work-14.jpg" target="_blank" rel="noopener">
-    <img src="images/work-14.jpg" alt="어디로 갈 거야?" loading="lazy" onerror="this.style.display='none'">
+    <img src="images/work-14.jpg" alt="?대뵒濡?媛?嫄곗빞?" loading="lazy" onerror="this.style.display='none'">
   </a>
-  <h3 class="work-title">어디로 갈 거야?</h3>
-  <p class="meta">2024 · Japanese ink on paper</p>
-  <p class="meta dimensions">42 × 30 cm</p>
+  <h3 class="work-title">?대뵒濡?媛?嫄곗빞?</h3>
+  <p class="meta">2024 쨌 Japanese ink on paper</p>
+  <p class="meta dimensions">42 횞 30 cm</p>
 </article>
 
                        <article class="work-item" data-year="2025" data-medium="painting-drawing">
@@ -695,26 +711,26 @@
     <img src="images/work-15.jpg" alt="Sunset" loading="lazy" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">Sunset</h3>
-  <p class="meta">2025 · watercolor on paper</p>
-  <p class="meta dimensions"><!-- 사이즈 입력 --></p>
+  <p class="meta">2025 쨌 watercolor on paper</p>
+  <p class="meta dimensions"><!-- ?ъ씠利??낅젰 --></p>
 </article>
 
                                <article class="work-item" data-year="2024,2025,2026" data-medium="painting-drawing">
   <a class="work-image" href="images/work-16.jpg" target="_blank" rel="noopener">
-    <img src="images/work-16.jpg" alt="타오르는 세계" loading="lazy" onerror="this.style.display='none'">
+    <img src="images/work-16.jpg" alt="??ㅻⅤ???멸퀎" loading="lazy" onerror="this.style.display='none'">
   </a>
-  <h3 class="work-title">타오르는 세계</h3>
-  <p class="meta">2024~ · watercolor on paper</p>
-  <p class="meta dimensions"><!-- 사이즈 입력 --></p>
+  <h3 class="work-title">??ㅻⅤ???멸퀎</h3>
+  <p class="meta">2024~ 쨌 watercolor on paper</p>
+  <p class="meta dimensions"><!-- ?ъ씠利??낅젰 --></p>
 </article>
 
                                     <article class="work-item" data-year="2025" data-medium="ceramics">
   <a class="work-image" href="images/work-17.jpg" target="_blank" rel="noopener">
-    <img src="images/work-17.jpg" alt="머리 다섯 달린 새" loading="lazy" onerror="this.style.display='none'">
+    <img src="images/work-17.jpg" alt="癒몃━ ?ㅼ꽢 ?щ┛ ?? loading="lazy" onerror="this.style.display='none'">
   </a>
-  <h3 class="work-title">머리 다섯 달린 새</h3>
-  <p class="meta">2025 · ceramic</p>
-  <p class="meta dimensions"><!-- 사이즈 입력 --></p>
+  <h3 class="work-title">癒몃━ ?ㅼ꽢 ?щ┛ ??/h3>
+  <p class="meta">2025 쨌 ceramic</p>
+  <p class="meta dimensions"><!-- ?ъ씠利??낅젰 --></p>
 </article>
       </div>
 
@@ -730,7 +746,7 @@
     </section>
 
     <footer>
-      © Yunseo Jo
+      짤 Yunseo Jo
     </footer>
   </main>
 
@@ -895,3 +911,4 @@
   </script>
 </body>
 </html>
+
