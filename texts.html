@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Texts — Yunseo Jo</title>
+  <title>Artist Statement — Yunseo Jo</title>
 
   <style>
     * {
@@ -60,53 +60,74 @@
 
     .page-title {
       margin: 64px 0 72px;
+    }
+
+    .page-title h1 {
+      margin: 0;
       font-size: 32px;
       font-weight: 400;
     }
 
-    .text-list {
+    .text-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 12px 24px;
+      margin-top: 30px;
+    }
+
+    .text-nav a {
+      font-size: 13px;
+      color: #333;
+    }
+
+    .text-nav a:hover,
+    .text-nav a:focus-visible {
+      color: #777;
+    }
+
+    .text-nav a:focus-visible {
+      outline: 1px solid #111;
+      outline-offset: 4px;
+    }
+
+    .text-nav a[aria-current="page"] {
+      color: #b7b7b7;
+    }
+
+    .statement-section {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 760px);
+      gap: 40px;
+      padding: 40px 0 72px;
       border-top: 1px solid #ddd;
     }
 
-    .text-item {
-      display: grid;
-      grid-template-columns: 160px minmax(0, 1fr);
-      gap: 32px;
-      padding: 30px 0;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .text-type {
-      margin: 0;
-      font-size: 13px;
-      line-height: 1.5;
-      color: #777;
-    }
-
-    .text-title {
-      margin: 0 0 8px;
-      font-size: 20px;
-      line-height: 1.35;
-      font-weight: 400;
-    }
-
-    .text-title a:hover,
-    .text-title a:focus-visible {
-      border-bottom: 1px solid #999;
-    }
-
-    .text-title a:focus-visible {
-      outline: none;
-    }
-
-    .text-credit {
+    .statement-author {
       margin: 0;
       font-size: 14px;
-      color: #777;
+      font-weight: 400;
+      color: #666;
+    }
+
+    .statement-body {
+      max-width: 760px;
+    }
+
+    .statement-body p {
+      margin: 0 0 1.05em;
+      font-size: 14px;
+      line-height: 1.85;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .statement-body p:last-child {
+      margin-bottom: 0;
     }
 
     footer {
-      margin-top: 80px;
+      margin-top: 32px;
       font-size: 13px;
       color: #777;
     }
@@ -128,12 +149,23 @@
 
       .page-title {
         margin: 48px 0 56px;
+      }
+
+      .page-title h1 {
         font-size: 28px;
       }
 
-      .text-item {
-        grid-template-columns: 1fr;
-        gap: 14px;
+      .statement-section {
+        display: block;
+        padding: 32px 0 56px;
+      }
+
+      .statement-author {
+        margin-bottom: 28px;
+      }
+
+      .statement-body p {
+        line-height: 1.8;
       }
     }
   </style>
@@ -142,10 +174,7 @@
 <body>
   <main class="page">
     <header>
-      <p class="site-title">
-        <a href="index.html">Yunseo Jo</a>
-      </p>
-
+      <p class="site-title"><a href="index.html">Yunseo Jo</a></p>
       <nav aria-label="Main navigation">
         <a href="index.html#work">Work</a>
         <a href="exhibitions.html">Exhibitions</a>
@@ -155,16 +184,24 @@
       </nav>
     </header>
 
-    <h1 class="page-title">Texts</h1>
+    <section class="page-title">
+      <h1>Artist Statement</h1>
+      <nav class="text-nav" aria-label="Text categories">
+        <a href="texts.html" aria-current="page">Artist Statement</a>
+        <a href="artist-note.html">Artist's Note</a>
+        <a href="exhibition-statements.html">Exhibition Statements</a>
+      </nav>
+    </section>
 
-    <section class="text-list" aria-label="Texts by and about Yunseo Jo">
-      <article class="text-item">
-        <p class="text-type">Statement</p>
-        <div>
-          <h2 class="text-title"><a href="statement.html">Artist Statement</a></h2>
-          <p class="text-credit">2023–2025 · Yunseo Jo</p>
-        </div>
-      </article>
+    <section class="statement-section">
+      <h2 class="statement-author">Yunseo Jo</h2>
+      <div class="statement-body">
+        <p>드로잉과 회화, 흙, 애니메이션과 판화 등 다양한 매체를 다루며, 날카로움을 녹이는 온기를 바탕으로 불완전한 세상 속에서 흐르는, 버텨내는, 이어지는 숨들을 만들고 그린다. 세계를 지탱하는 힘은 서로 다른 존재들과 연결되는 것으로부터 비롯된다고 믿고, 거대한 세계 안에서 곁을 공유하는 것들을 포착한다.</p>
+
+        <p>불확실성 속에서도 계속해서 동작하는 세계와 그 안에서 충실히 서로 기대어 살아가는 존재들을 그려내는데, 이때 이들은 종종 머리가 여럿 달려 있거나 종 간의 경계가 흐려진 초월적인 모습으로 등장한다. 이러한 이미지들을 통해 지나치게 빠르게 흐르는 세상의 시간에 작은 균열을 내고 잠시 느슨하게 만들기를 시도하며, 다른 존재를 위한 틈을 만들고자 한다. 어디론가 향하는 발, 기댄 머리, 끌어안은 몸, 맞잡은 손, 춤을 닮은 몸짓들은 세계를 살아내는 힘을 이야기하는 상징으로서 드로잉과 흙 위에서 반복적으로 등장하며 기호가 되고, 그러한 기호들의 집합으로 이루어진 나의 작업은 다른 존재와의 연결을 꿈꾼다.</p>
+
+        <p>최근에는 조각이 개별적으로 존재하는 대신 모여서 하나의 장면을 이루는 일에 관심을 두며, 서로 기대고 지탱하며 힘을 얻는 존재들의 이야기를 매체 안으로 연결 짓는 중이다. 동시에 모든 작업을 관통하고 있는 드로잉을 조각으로 가져와, 드로잉의 태도가 조각에 어떻게 반영되는지 다양한 형태로 실험하고 있다.</p>
+      </div>
     </section>
 
     <footer>© Yunseo Jo</footer>
