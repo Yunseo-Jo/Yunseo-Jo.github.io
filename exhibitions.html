@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -126,10 +126,14 @@
       font-weight: 400;
     }
 
-    .venue {
+    .exhibition-details {
       margin: 0 0 28px;
       font-size: 15px;
-      line-height: 1.55;
+      line-height: 1.65;
+    }
+
+    .exhibition-details span {
+      display: block;
     }
 
     .description {
@@ -138,6 +142,10 @@
       font-size: 14px;
       line-height: 1.7;
       color: #444;
+    }
+
+    .description + .description {
+      margin-top: 1em;
     }
 
     footer {
@@ -215,6 +223,7 @@
     <h1 class="page-title">Exhibitions</h1>
 
     <section class="exhibition-list">
+      <!-- 전시 1 -->
       <article class="exhibition">
         <div class="gallery" tabindex="0" aria-label="Humming Room exhibition images">
           <img class="slide is-active" src="images/humming-room-01.jpg" alt="Humming Room installation view 1" loading="eager" onerror="this.style.display='none'">
@@ -225,13 +234,18 @@
         </div>
 
         <div class="exhibition-info">
-          <p class="exhibition-meta">2026 · Group Exhibition</p>
+          <p class="exhibition-meta">Group Exhibition</p>
           <h2 class="exhibition-title">Humming Room</h2>
-          <p class="venue">ULTRA, Seoul</p>
-          <p class="description"></p>
+          <p class="exhibition-details">
+            <span>2026. 4. 4–4.25</span>
+            <span>울트라</span>
+            <span>ULTRA</span>
+          </p>
+          <p class="description"> </p>
         </div>
       </article>
 
+      <!-- 전시 2 -->
       <article class="exhibition">
         <div class="gallery" tabindex="0" aria-label="IT TAKES TWO exhibition images">
           <img class="slide is-active" src="images/it-takes-two-01.jpg" alt="IT TAKES TWO installation view 1" loading="lazy" onerror="this.style.display='none'">
@@ -242,13 +256,18 @@
         </div>
 
         <div class="exhibition-info">
-          <p class="exhibition-meta">2025 · Solo Exhibition</p>
+          <p class="exhibition-meta">Solo Exhibition</p>
           <h2 class="exhibition-title">IT TAKES TWO</h2>
-          <p class="venue">SAM Art Museum, Seoul</p>
-          <p class="description"></p>
+          <p class="exhibition-details">
+            <span>2025. 3. 15–3.29</span>
+            <span>서울교육대학교 샘미술관</span>
+            <span>SNUE ART MUSEUM</span>
+          </p>
+          <p class="description">전시 소개문</p>
         </div>
       </article>
 
+      <!-- 전시 3 -->
       <article class="exhibition">
         <div class="gallery" tabindex="0" aria-label="Dance, Soar, Prickle exhibition images">
           <img class="slide is-active" src="images/dance-soar-prickle-01.jpg" alt="Dance, Soar, Prickle installation view 1" loading="lazy" onerror="this.style.display='none'">
@@ -259,13 +278,18 @@
         </div>
 
         <div class="exhibition-info">
-          <p class="exhibition-meta">2024 · Solo Exhibition</p>
-          <h2 class="exhibition-title">Dance, Soar, Prickle</h2>
-          <p class="venue">Gallery Meilan, Seoul</p>
-          <p class="description"></p>
+          <p class="exhibition-meta">전시 구분</p>
+          <h2 class="exhibition-title">전시 제목</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>전시 장소</span>
+            <span>영문 장소명</span>
+          </p>
+          <p class="description">전시 소개문</p>
         </div>
       </article>
 
+      <!-- 전시 4 -->
       <article class="exhibition">
         <div class="gallery" tabindex="0" aria-label="Tebah exhibition images">
           <img class="slide is-active" src="images/tebah-01.jpg" alt="Tebah installation view 1" loading="lazy" onerror="this.style.display='none'">
@@ -276,13 +300,18 @@
         </div>
 
         <div class="exhibition-info">
-          <p class="exhibition-meta">2024 · Solo Exhibition</p>
-          <h2 class="exhibition-title">Tebah</h2>
-          <p class="venue">RE:PLAT, Seoul</p>
-          <p class="description"></p>
+          <p class="exhibition-meta">전시 구분</p>
+          <h2 class="exhibition-title">전시 제목</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>전시 장소</span>
+            <span>영문 장소명</span>
+          </p>
+          <p class="description">전시 소개문</p>
         </div>
       </article>
 
+      <!-- 전시 5 -->
       <article class="exhibition">
         <div class="gallery" tabindex="0" aria-label="Whisper Whisper exhibition images">
           <img class="slide is-active" src="images/whisper-whisper-01.jpg" alt="Whisper Whisper installation view 1" loading="lazy" onerror="this.style.display='none'">
@@ -293,13 +322,18 @@
         </div>
 
         <div class="exhibition-info">
-          <p class="exhibition-meta">2023 · Solo Exhibition</p>
-          <h2 class="exhibition-title">Whisper Whisper</h2>
-          <p class="venue">COSO, Seoul</p>
-          <p class="description"></p>
+          <p class="exhibition-meta">전시 구분</p>
+          <h2 class="exhibition-title">전시 제목</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>전시 장소</span>
+            <span>영문 장소명</span>
+          </p>
+          <p class="description">전시 소개문</p>
         </div>
       </article>
 
+      <!-- 전시 6 -->
       <article class="exhibition">
         <div class="gallery" tabindex="0" aria-label="A Small and Tumultuous World exhibition images">
           <img class="slide is-active" src="images/small-tumultuous-world-01.jpg" alt="A Small and Tumultuous World installation view 1" loading="lazy" onerror="this.style.display='none'">
@@ -310,10 +344,14 @@
         </div>
 
         <div class="exhibition-info">
-          <p class="exhibition-meta">2023 · Duo Exhibition</p>
-          <h2 class="exhibition-title">A Small and Tumultuous World</h2>
-          <p class="venue">Rayprojects, Seoul</p>
-          <p class="description"></p>
+          <p class="exhibition-meta">전시 구분</p>
+          <h2 class="exhibition-title">전시 제목</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>전시 장소</span>
+            <span>영문 장소명</span>
+          </p>
+          <p class="description">전시 소개문</p>
         </div>
       </article>
     </section>
