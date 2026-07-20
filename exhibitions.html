@@ -208,6 +208,29 @@
   color: #888;
 }
 
+    .description-wrap {
+      overflow: hidden;
+    }
+
+    .description-toggle {
+      display: inline-block;
+      margin: 12px 0 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #555;
+      font: inherit;
+      font-size: 12px;
+      line-height: 1.5;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+    }
+
+    .description-toggle[hidden] {
+      display: none;
+    }
+
     .description {
       max-width: 420px;
       margin: 0;
@@ -330,7 +353,7 @@
           <p class="exhibition-meta">Group Exhibition · 2026</p>
           <h2 class="exhibition-title">Humming Room</h2>
           <p class="exhibition-details">
-            <span>2026. 4. 4 – 4. 25</span>
+            <span>2026. 4. 4. – 4. 25.</span>
             <span>울트라, 서울</span>
             <span>ULTRA, Seoul, KR</span>
           </p>
@@ -357,7 +380,7 @@
           <p class="exhibition-meta">Solo Exhibition · 2025</p>
           <h2 class="exhibition-title">IT TAKES TWO</h2>
           <p class="exhibition-details">
-            <span>2025. 3. 15 – 3.29</span>
+            <span>2025. 3. 15. – 3. 29.</span>
             <span>서울교육대학교 샘미술관, 서울</span>
             <span>SNUE Art Museum, Seoul, KR</span>
           </p>
@@ -387,7 +410,7 @@
           <p class="exhibition-meta">Group Exhibition · 2025</p>
           <h2 class="exhibition-title">바람열람</h2>
           <p class="exhibition-details">
-            <span>2025. 9. 5 – 9. 28</span>
+            <span>2025. 9. 5. – 9. 28.</span>
             <span>공간 일리, 서울</span>
             <span>space illi, Seoul, KR</span>
           </p>
@@ -408,7 +431,7 @@
           <p class="exhibition-meta">Solo Exhibition · 2024</p>
           <h2 class="exhibition-title">춤추고 날아오르고 찌르기</h2>
           <p class="exhibition-details">
-            <span>2024. 10. 17 – 11. 14</span>
+            <span>2024. 10. 17. – 11. 14.</span>
             <span>갤러리 메일란, 서울</span>
             <span>Gallery Meilan, Seoul, KR</span>
           </p>
@@ -429,7 +452,7 @@
           <p class="exhibition-meta">Solo Exhibition · 2024</p>
           <h2 class="exhibition-title">테바 Tebah</h2>
           <p class="exhibition-details">
-            <span>2024. 6. 28 – 7. 20</span>
+            <span>2024. 6. 28. – 7. 20.</span>
             <span>전시공간 리플랫, 서울</span>
             <span>RE:PLAT, Seoul, KR</span>
           </p>
@@ -450,7 +473,7 @@
           <p class="exhibition-meta">Group Exhibition · 2024</p>
           <h2 class="exhibition-title">US_이질적 조화</h2>
           <p class="exhibition-details">
-            <span>2024. 5. 9 – 6. 5</span>
+            <span>2024. 5. 9. – 6. 5.</span>
             <span>큐아트스페이스, 파주</span>
             <span>Q-Art Space, Paju, KR</span>
           </p>
@@ -471,7 +494,7 @@
           <p class="exhibition-meta">Group Exhibition · 2024</p>
           <h2 class="exhibition-title">네 필의 말</h2>
           <p class="exhibition-details">
-            <span>2024. 4. 1 – 4.11</span>
+            <span>2024. 4. 1. – 4. 11.</span>
             <span>한국예술종합학교 복도갤러리, 서울</span>
             <span>Korea National University of Arts Theory Gallery, Seoul, KR</span>
           </p>
@@ -853,6 +876,141 @@
     });
 
     document.addEventListener("visibilitychange", chooseActiveGallery);
+  </script>
+
+  <script>
+    (() => {
+      const mobileBreakpoint = 760;
+      const mobileDescriptionHeight = 120;
+      const exhibitionEntries = Array.from(document.querySelectorAll(".exhibition")).map(
+        (exhibition, index) => {
+          const info = exhibition.querySelector(".exhibition-info");
+          const descriptions = info
+            ? Array.from(info.querySelectorAll(".description"))
+            : [];
+
+          if (!info || !descriptions.length) {
+            return null;
+          }
+
+          const descriptionWrap = document.createElement("div");
+          const toggle = document.createElement("button");
+
+          descriptionWrap.className = "description-wrap";
+          descriptionWrap.id = `exhibition-description-${index + 1}`;
+          descriptions[0].before(descriptionWrap);
+          descriptions.forEach((description) => descriptionWrap.appendChild(description));
+
+          toggle.type = "button";
+          toggle.className = "description-toggle";
+          toggle.textContent = "더보기";
+          toggle.hidden = true;
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-controls", descriptionWrap.id);
+          descriptionWrap.after(toggle);
+
+          const entry = {
+            exhibition,
+            descriptionWrap,
+            toggle,
+            expanded: false
+          };
+
+          toggle.addEventListener("click", () => {
+            entry.expanded = !entry.expanded;
+            toggle.textContent = entry.expanded ? "접기" : "더보기";
+            toggle.setAttribute("aria-expanded", String(entry.expanded));
+            updateDescription(entry);
+          });
+
+          return entry;
+        }
+      ).filter(Boolean);
+
+      function updateDescription(entry) {
+        const { exhibition, descriptionWrap, toggle, expanded } = entry;
+
+        if (window.innerWidth <= mobileBreakpoint) {
+          const fullHeight = descriptionWrap.scrollHeight;
+
+          if (fullHeight <= mobileDescriptionHeight + 1) {
+            descriptionWrap.style.maxHeight = "none";
+            toggle.hidden = true;
+            entry.expanded = false;
+            toggle.textContent = "더보기";
+            toggle.setAttribute("aria-expanded", "false");
+            return;
+          }
+
+          toggle.hidden = false;
+          descriptionWrap.style.maxHeight = expanded
+            ? "none"
+            : `${mobileDescriptionHeight}px`;
+          return;
+        }
+
+        const gallery = exhibition.querySelector(".gallery");
+        const thumbnails = exhibition.querySelector(".thumbnails");
+        const mediaBottom = (thumbnails || gallery).getBoundingClientRect().bottom;
+        const descriptionTop = descriptionWrap.getBoundingClientRect().top;
+        const availableWithoutButton = Math.floor(mediaBottom - descriptionTop);
+        const fullHeight = descriptionWrap.scrollHeight;
+
+        if (fullHeight <= availableWithoutButton + 1) {
+          descriptionWrap.style.maxHeight = "none";
+          toggle.hidden = true;
+          entry.expanded = false;
+          toggle.textContent = "더보기";
+          toggle.setAttribute("aria-expanded", "false");
+          return;
+        }
+
+        toggle.hidden = false;
+
+        if (expanded) {
+          descriptionWrap.style.maxHeight = "none";
+          return;
+        }
+
+        const availableWithButton = Math.max(56, availableWithoutButton - 34);
+        descriptionWrap.style.maxHeight = `${availableWithButton}px`;
+      }
+
+      function updateAllDescriptions() {
+        exhibitionEntries.forEach(updateDescription);
+      }
+
+      let resizeTimer = null;
+
+      window.addEventListener("resize", () => {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(updateAllDescriptions, 120);
+      });
+
+      window.addEventListener("load", updateAllDescriptions);
+      window.requestAnimationFrame(updateAllDescriptions);
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(updateAllDescriptions);
+      }
+
+      if ("ResizeObserver" in window) {
+        const mediaObserver = new ResizeObserver(updateAllDescriptions);
+
+        exhibitionEntries.forEach(({ exhibition }) => {
+          const gallery = exhibition.querySelector(".gallery");
+          const thumbnails = exhibition.querySelector(".thumbnails");
+
+          if (gallery) {
+            mediaObserver.observe(gallery);
+          }
+
+          if (thumbnails) {
+            mediaObserver.observe(thumbnails);
+          }
+        });
+      }
+    })();
   </script>
 </body>
 </html>
