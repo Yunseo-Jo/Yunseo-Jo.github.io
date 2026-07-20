@@ -1,3 +1,603 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exhibitions — Yunseo Jo</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .site-title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 22px;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: #333;
+    }
+
+    nav a[aria-current="page"] {
+      color: #b7b7b7;
+    }
+
+    .page-title {
+      margin: 64px 0 72px;
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .exhibition {
+      display: grid;
+      grid-template-areas:
+        "gallery info"
+        "thumbnails info";
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+      column-gap: 36px;
+      row-gap: 10px;
+      padding-bottom: 88px;
+      margin-bottom: 88px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .exhibition:last-child {
+      margin-bottom: 0;
+    }
+
+    .gallery {
+      grid-area: gallery;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #f1f1f1;
+      cursor: pointer;
+      touch-action: pan-y;
+    }
+
+    .gallery:focus-visible {
+      outline: 1px solid #111;
+      outline-offset: 4px;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity 450ms ease;
+      pointer-events: none;
+    }
+
+    .slide.is-active {
+      opacity: 1;
+    }
+
+    .thumbnails {
+      grid-area: thumbnails;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      width: 100%;
+    }
+
+    .thumbnail {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      background: #f1f1f1;
+      cursor: pointer;
+      opacity: 0.45;
+      transition: opacity 180ms ease;
+    }
+
+    .thumbnail:hover,
+    .thumbnail.is-active {
+      opacity: 1;
+    }
+
+    .thumbnail:focus-visible {
+      outline: 1px solid #111;
+      outline-offset: 3px;
+      opacity: 1;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .exhibition-info {
+      grid-area: info;
+      padding-top: 2px;
+    }
+
+    .exhibition-meta {
+      margin: 0 0 14px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #777;
+    }
+
+    .exhibition-title {
+      margin: 0 0 22px;
+      font-size: 24px;
+      line-height: 1.25;
+      font-weight: 400;
+    }
+
+    .exhibition-details {
+      margin: 0 0 28px;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .exhibition-details span {
+      display: block;
+    }
+
+    .description {
+      max-width: 420px;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .description + .description {
+      margin-top: 1em;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @media (max-width: 760px) {
+      .exhibition {
+        grid-template-areas:
+          "gallery"
+          "thumbnails"
+          "info";
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+        padding-bottom: 64px;
+        margin-bottom: 64px;
+      }
+
+      .thumbnails {
+        display: flex;
+        gap: 7px;
+        overflow-x: auto;
+        padding: 0 0 2px;
+        scrollbar-width: none;
+      }
+
+      .thumbnails::-webkit-scrollbar {
+        display: none;
+      }
+
+      .thumbnail {
+        flex: 0 0 76px;
+      }
+
+      .exhibition-info {
+        margin-top: 18px;
+        padding-top: 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        padding: 28px 18px 64px;
+      }
+
+      header {
+        display: block;
+        padding-bottom: 40px;
+      }
+
+      nav {
+        justify-content: flex-start;
+        margin-top: 20px;
+      }
+
+      .page-title {
+        margin: 48px 0 56px;
+        font-size: 28px;
+      }
+
+      .gallery {
+        aspect-ratio: 3 / 2;
+      }
+
+      .exhibition-title {
+        font-size: 21px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slide {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <p class="site-title">
+        <a href="index.html">Yunseo Jo</a>
+      </p>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html#work">Work</a>
+        <a href="exhibitions.html" aria-current="page">Exhibitions</a>
+        <a href="texts.html">Texts</a>
+        <a href="press.html">Press</a>
+        <a href="cv.html">CV</a>
+        <a href="mailto:684500@gmail.com">Contact</a>
+      </nav>
+    </header>
+
+    <h1 class="page-title">Exhibitions</h1>
+
+    <section class="exhibition-list">
+      <!-- 전시 1: 첫 번째 사진(-01)이 대표 이미지입니다. -->
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="Humming Room exhibition images">
+          <img class="slide is-active" src="images/humming-room-01.jpg" alt="Humming Room installation view 1" loading="eager" onerror="this.style.display='none'">
+          <img class="slide" src="images/humming-room-02.jpg" alt="Humming Room installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/humming-room-03.jpg" alt="Humming Room installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/humming-room-04.jpg" alt="Humming Room installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/humming-room-05.jpg" alt="Humming Room installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="exhibition-info">
+          <p class="exhibition-meta">Group Exhibition · 2026</p>
+          <h2 class="exhibition-title">Humming Room</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>울트라, 서울</span>
+            <span>ULTRA, Seoul, KR</span>
+          </p>
+          <p class="description">전시 소개문</p>
+        </div>
+      </article>
+
+      <!-- 전시 2 -->
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="IT TAKES TWO exhibition images">
+          <img class="slide is-active" src="images/it-takes-two-01.jpg" alt="IT TAKES TWO installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/it-takes-two-02.jpg" alt="IT TAKES TWO installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/it-takes-two-03.jpg" alt="IT TAKES TWO installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/it-takes-two-04.jpg" alt="IT TAKES TWO installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/it-takes-two-05.jpg" alt="IT TAKES TWO installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="exhibition-info">
+          <p class="exhibition-meta">Solo Exhibition · 2025</p>
+          <h2 class="exhibition-title">IT TAKES TWO</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>서울교육대학교 샘미술관, 서울</span>
+            <span>SAM Art Museum, Seoul, KR</span>
+          </p>
+          <p class="description">전시 소개문</p>
+        </div>
+      </article>
+
+      <!-- 전시 3 -->
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="Baram Yeollam exhibition images">
+          <img class="slide is-active" src="images/baram-yeollam-01.jpg" alt="Baram Yeollam installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/baram-yeollam-02.jpg" alt="Baram Yeollam installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/baram-yeollam-03.jpg" alt="Baram Yeollam installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/baram-yeollam-04.jpg" alt="Baram Yeollam installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/baram-yeollam-05.jpg" alt="Baram Yeollam installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="exhibition-info">
+          <p class="exhibition-meta">Group Exhibition · 2025</p>
+          <h2 class="exhibition-title">바람열람</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>공간 일리, 서울</span>
+            <span>space illi, Seoul, KR</span>
+          </p>
+          <p class="description">전시 소개문</p>
+        </div>
+      </article>
+
+      <!-- 전시 4 -->
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="Dance, Soar, Prickle exhibition images">
+          <img class="slide is-active" src="images/dance-soar-prickle-01.jpg" alt="Dance, Soar, Prickle installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/dance-soar-prickle-02.jpg" alt="Dance, Soar, Prickle installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/dance-soar-prickle-03.jpg" alt="Dance, Soar, Prickle installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/dance-soar-prickle-04.jpg" alt="Dance, Soar, Prickle installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/dance-soar-prickle-05.jpg" alt="Dance, Soar, Prickle installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="exhibition-info">
+          <p class="exhibition-meta">Solo Exhibition · 2024</p>
+          <h2 class="exhibition-title">춤추고 날아오르고 찌르기</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>갤러리 메일란, 서울</span>
+            <span>Gallery Meilan, Seoul, KR</span>
+          </p>
+          <p class="description">전시 소개문</p>
+        </div>
+      </article>
+
+      <!-- 전시 5 -->
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="Tebah exhibition images">
+          <img class="slide is-active" src="images/tebah-01.jpg" alt="Tebah installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/tebah-02.jpg" alt="Tebah installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/tebah-03.jpg" alt="Tebah installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/tebah-04.jpg" alt="Tebah installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/tebah-05.jpg" alt="Tebah installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="exhibition-info">
+          <p class="exhibition-meta">Solo Exhibition · 2024</p>
+          <h2 class="exhibition-title">테바 Tebah</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>전시공간 리플랫, 서울</span>
+            <span>RE:PLAT, Seoul, KR</span>
+          </p>
+          <p class="description">전시 소개문</p>
+        </div>
+      </article>
+
+      <!-- 전시 6 -->
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="US Heterogeneous Harmony exhibition images">
+          <img class="slide is-active" src="images/us-heterogeneous-harmony-01.jpg" alt="US Heterogeneous Harmony installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/us-heterogeneous-harmony-02.jpg" alt="US Heterogeneous Harmony installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/us-heterogeneous-harmony-03.jpg" alt="US Heterogeneous Harmony installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/us-heterogeneous-harmony-04.jpg" alt="US Heterogeneous Harmony installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/us-heterogeneous-harmony-05.jpg" alt="US Heterogeneous Harmony installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="exhibition-info">
+          <p class="exhibition-meta">Group Exhibition · 2024</p>
+          <h2 class="exhibition-title">US_이질적 조화</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>큐아트스페이스, 파주</span>
+            <span>Q-Art Space, Paju, KR</span>
+          </p>
+          <p class="description">전시 소개문</p>
+        </div>
+      </article>
+
+      <!-- 전시 7 -->
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="Four Horses exhibition images">
+          <img class="slide is-active" src="images/four-horses-01.jpg" alt="Four Horses installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/four-horses-02.jpg" alt="Four Horses installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/four-horses-03.jpg" alt="Four Horses installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/four-horses-04.jpg" alt="Four Horses installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/four-horses-05.jpg" alt="Four Horses installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="exhibition-info">
+          <p class="exhibition-meta">Group Exhibition · 2024</p>
+          <h2 class="exhibition-title">네 필의 말</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>한국예술종합학교 복도갤러리, 서울</span>
+            <span>Korea National University of Arts Theory Gallery, Seoul, KR</span>
+          </p>
+          <p class="description">전시 소개문</p>
+        </div>
+      </article>
+
+      <!-- 전시 8 -->
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="Whisper Whisper exhibition images">
+          <img class="slide is-active" src="images/whisper-whisper-01.jpg" alt="Whisper Whisper installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/whisper-whisper-02.jpg" alt="Whisper Whisper installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/whisper-whisper-03.jpg" alt="Whisper Whisper installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/whisper-whisper-04.jpg" alt="Whisper Whisper installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/whisper-whisper-05.jpg" alt="Whisper Whisper installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="exhibition-info">
+          <p class="exhibition-meta">Solo Exhibition · 2023</p>
+          <h2 class="exhibition-title">Whisper Whisper</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>COSO, 서울</span>
+            <span>COSO, Seoul, KR</span>
+          </p>
+          <p class="description">전시 소개문</p>
+        </div>
+      </article>
+
+      <!-- 전시 9 -->
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="A Small and Tumultuous World exhibition images">
+          <img class="slide is-active" src="images/small-tumultuous-world-01.jpg" alt="A Small and Tumultuous World installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/small-tumultuous-world-02.jpg" alt="A Small and Tumultuous World installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/small-tumultuous-world-03.jpg" alt="A Small and Tumultuous World installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/small-tumultuous-world-04.jpg" alt="A Small and Tumultuous World installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/small-tumultuous-world-05.jpg" alt="A Small and Tumultuous World installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="exhibition-info">
+          <p class="exhibition-meta">Duo Exhibition · 2023</p>
+          <h2 class="exhibition-title">작고도 소란한 세계</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>레이프로젝트서울, 서울</span>
+            <span>Rayprojects, Seoul, KR</span>
+          </p>
+          <p class="description">전시 소개문</p>
+        </div>
+      </article>
+
+      <!-- 전시 10 -->
+      <article class="exhibition">
+        <div class="gallery" tabindex="0" aria-label="BUBBLE FOAM CAMP exhibition images">
+          <img class="slide is-active" src="images/bubble-foam-camp-01.jpg" alt="BUBBLE FOAM CAMP installation view 1" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/bubble-foam-camp-02.jpg" alt="BUBBLE FOAM CAMP installation view 2" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/bubble-foam-camp-03.jpg" alt="BUBBLE FOAM CAMP installation view 3" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/bubble-foam-camp-04.jpg" alt="BUBBLE FOAM CAMP installation view 4" loading="lazy" onerror="this.style.display='none'">
+          <img class="slide" src="images/bubble-foam-camp-05.jpg" alt="BUBBLE FOAM CAMP installation view 5" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="exhibition-info">
+          <p class="exhibition-meta">Group Exhibition · 2023</p>
+          <h2 class="exhibition-title">BUBBLE FOAM CAMP</h2>
+          <p class="exhibition-details">
+            <span>전시 기간</span>
+            <span>아트스페이스 플라스틱프로그, 고양</span>
+            <span>Artspace Plasticfrog, Goyang, KR</span>
+          </p>
+          <p class="description">전시 소개문</p>
+        </div>
+      </article>
+    </section>
+
+    <footer>© Yunseo Jo</footer>
+  </main>
+
+  <script>
+    const galleries = Array.from(document.querySelectorAll(".gallery"));
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const visibility = new Map();
+    const galleryState = new WeakMap();
+    let activeGallery = null;
+
+    galleries.forEach((gallery) => {
+      const slides = Array.from(gallery.querySelectorAll(".slide"));
+      const state = {
+        index: 0,
+        timer: null,
+        userPaused: false,
+        touchStartX: 0,
+        ignoreClick: false,
+        currentSlide: slides[0] || null,
+        thumbnails: []
+      };
+
+      galleryState.set(gallery, state);
+
+      slides.forEach((slide, index) => {
+        slide.classList.toggle("is-active", index === 0);
+        slide.setAttribute("aria-hidden", String(index !== 0));
+      });
+
+      if (slides.length > 1) {
+        const thumbnails = document.createElement("div");
+        thumbnails.className = "thumbnails";
+        thumbnails.setAttribute("role", "group");
+        thumbnails.setAttribute("aria-label", "Exhibition images");
+
+        slides.forEach((slide, index) => {
+          const button = document.createElement("button");
+          const image = document.createElement("img");
+
+          button.type = "button";
+          button.className = "thumbnail";
+          button.classList.toggle("is-active", index === 0);
+          button.setAttribute("aria-label", `Show image ${index + 1}`);
+          button.setAttribute("aria-pressed", String(index === 0));
+
+          image.src = slide.getAttribute("src");
+          image.alt = "";
+          image.loading = "lazy";
+          image.decoding = "async";
+
+          button.appendChild(image);
+          thumbnails.appendChild(button);
+          state.thumbnails.push({ button, slide });
+
+          const markUnavailable = () => {
+            if (slide.dataset.unavailable === "true") {
+              return;
+            }
+
+            slide.dataset.unavailable = "true";
+            button.hidden = true;
+
+            if (state.currentSlide === slide) {
+              showSlide(gallery, 0);
+            }
+
+            if (getAvailableSlides(gallery).length < 2) {
+              stopGallery(gallery);
+            }
+          };
+
+          slide.addEventListener("error", markUnavailable);
+          image.addEventListener("error", markUnavailable);
+
+          button.addEventListener("click", () => {
+            const availableSlides = getAvailableSlides(gallery);
+            const selectedIndex = availableSlides.indexOf(slide);
+
+            if (selectedIndex === -1) {
+              return;
+            }
+
+            state.userPaused = true;
+            stopGallery(gallery);
+            showSlide(gallery, selectedIndex);
+          });
+
+          if (slide.complete && slide.naturalWidth === 0) {
+            markUnavailable();
+          }
+        });
+
+        gallery.insertAdjacentElement("afterend", thumbnails);
+      }
+
+      showSlide(gallery, 0);
+    });
+
     function getAvailableSlides(gallery) {
       return Array.from(gallery.querySelectorAll(".slide")).filter(
         (slide) => slide.dataset.unavailable !== "true"
