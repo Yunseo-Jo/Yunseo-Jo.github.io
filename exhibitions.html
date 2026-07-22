@@ -67,12 +67,9 @@
 
     .exhibition {
       display: grid;
-      grid-template-areas:
-        "gallery info"
-        "thumbnails info";
       grid-template-columns: minmax(0, 11fr) minmax(300px, 9fr);
       column-gap: 36px;
-      row-gap: 10px;
+      align-items: start;
       padding-bottom: 88px;
       margin-bottom: 88px;
       border-bottom: 1px solid #ddd;
@@ -82,11 +79,17 @@
       margin-bottom: 0;
     }
 
+    .exhibition-media {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .gallery {
-      grid-area: gallery;
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16 / 10;
       overflow: hidden;
       background: #fff;
       cursor: pointer;
@@ -104,7 +107,8 @@
       width: 100%;
       height: 100%;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
+      background: #fff;
       opacity: 0;
       transition: opacity 450ms ease;
       pointer-events: none;
@@ -120,7 +124,6 @@
     }
 
     .thumbnails {
-      grid-area: thumbnails;
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 8px;
@@ -158,7 +161,6 @@
     }
 
     .exhibition-info {
-      grid-area: info;
       padding-top: 2px;
     }
 
@@ -251,12 +253,7 @@
 
     @media (max-width: 760px) {
       .exhibition {
-        grid-template-areas:
-          "gallery"
-          "thumbnails"
-          "info";
         grid-template-columns: 1fr;
-        row-gap: 10px;
         padding-bottom: 64px;
         margin-bottom: 64px;
       }
@@ -713,6 +710,18 @@
       }
 
       showSlide(gallery, 0);
+
+      const thumbnailStrip = gallery.nextElementSibling?.classList.contains("thumbnails")
+        ? gallery.nextElementSibling
+        : null;
+      const media = document.createElement("div");
+      media.className = "exhibition-media";
+      gallery.before(media);
+      media.appendChild(gallery);
+
+      if (thumbnailStrip) {
+        media.appendChild(thumbnailStrip);
+      }
     });
 
     function getAvailableSlides(gallery) {
@@ -964,7 +973,13 @@
 
         const gallery = exhibition.querySelector(".gallery");
         const thumbnails = exhibition.querySelector(".thumbnails");
-        const mediaBottom = (thumbnails || gallery).getBoundingClientRect().bottom;
+        const visibleThumbnails = thumbnails
+          ? Array.from(thumbnails.querySelectorAll(".thumbnail")).filter(
+              (thumbnail) => !thumbnail.hidden
+            )
+          : [];
+        const lastThumbnail = visibleThumbnails[visibleThumbnails.length - 1] || null;
+        const mediaBottom = (lastThumbnail || gallery).getBoundingClientRect().bottom;
         const descriptionTop = descriptionWrap.getBoundingClientRect().top;
         const availableWithoutButton = Math.floor(mediaBottom - descriptionTop);
         const fullHeight = descriptionWrap.scrollHeight;
