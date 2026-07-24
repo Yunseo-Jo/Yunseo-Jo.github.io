@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="ko">
-<head>
+<html lang="ko"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yunseo Jo</title>
@@ -262,6 +261,11 @@
 
     .work-item[hidden] {
       display: none;
+    }
+
+    .archive-sentinel {
+      width: 100%;
+      height: 1px;
     }
 
     .work-image {
@@ -653,15 +657,8 @@
           </div>
 
           <form class="work-search" role="search">
-            <input
-              class="work-search-input"
-              id="work-search-input"
-              type="search"
-              aria-label="Search works by title, year, or material"
-              placeholder="Search title, year, material"
-              autocomplete="off"
-              spellcheck="false">
-            <button class="search-clear" type="button" aria-label="Clear search" hidden>&times;</button>
+            <input class="work-search-input" id="work-search-input" type="search" aria-label="Search works by title, year, or material" placeholder="Search title, year, material" autocomplete="off" spellcheck="false">
+            <button class="search-clear" type="button" aria-label="Clear search" hidden="">×</button>
           </form>
         </div>
       </div>
@@ -673,7 +670,7 @@
       <div class="grid">
         <article class="work-item" data-year="2026" data-medium="ceramics">
           <a class="work-image" href="images/work-01.jpg.jpg" target="_blank" rel="noopener">
-            <img src="images/work-01.jpg.jpg" alt="숨이 머무는 곳" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/work-01.jpg.jpg" alt="숨이 머무는 곳" loading="lazy" decoding="async" onerror="this.style.display='none'">
           </a>
           <h3 class="work-title">숨이 머무는 곳</h3>
           <p class="meta">2026 · Ceramic</p>
@@ -682,7 +679,7 @@
 
         <article class="work-item" data-year="2025" data-medium="ceramics">
           <a class="work-image" href="images/work-02.JPG" target="_blank" rel="noopener">
-            <img src="images/work-02.JPG" alt="Breathing" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/work-02.JPG" alt="Breathing" loading="lazy" decoding="async" onerror="this.style.display='none'">
           </a>
           <h3 class="work-title">Breathing</h3>
           <p class="meta">2025 · Ceramic</p>
@@ -691,7 +688,7 @@
 
         <article class="work-item" data-year="2026" data-medium="ceramics">
           <a class="work-image" href="images/work-03.jpg" target="_blank" rel="noopener">
-            <img src="images/work-03.jpg" alt="Landing" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/work-03.jpg" alt="Landing" loading="lazy" decoding="async" onerror="this.style.display='none'">
           </a>
           <h3 class="work-title">Landing</h3>
           <p class="meta">2026 · Clay</p>
@@ -700,7 +697,7 @@
 
         <article class="work-item" data-year="2024" data-medium="painting-drawing">
           <a class="work-image" href="images/work-04.jpg" target="_blank" rel="noopener">
-            <img src="images/work-04.jpg" alt="숲" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/work-04.jpg" alt="숲" loading="lazy" decoding="async" onerror="this.style.display='none'">
           </a>
           <h3 class="work-title">숲</h3>
           <p class="meta">2024 · Mixed media on paper</p>
@@ -709,7 +706,7 @@
 
         <article class="work-item" data-year="2023" data-medium="ceramics">
           <a class="work-image" href="images/work-05.jpg" target="_blank" rel="noopener">
-            <img src="images/work-05.jpg" alt="산" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/work-05.jpg" alt="산" loading="lazy" decoding="async" onerror="this.style.display='none'">
           </a>
           <h3 class="work-title">산</h3>
           <p class="meta">2023 · Ceramic</p>
@@ -718,7 +715,7 @@
 
         <article class="work-item" data-year="2025" data-medium="painting-drawing">
           <a class="work-image" href="images/work-06.jpg" target="_blank" rel="noopener">
-            <img src="images/work-06.jpg" alt="새벽" loading="lazy" onerror="this.style.display='none'">
+            <img src="images/work-06.jpg" alt="새벽" loading="lazy" decoding="async" onerror="this.style.display='none'">
           </a>
           <h3 class="work-title">새벽</h3>
           <p class="meta">2025 · Oil on canvas</p>
@@ -727,7 +724,7 @@
 
         <article class="work-item" data-year="2024" data-medium="painting-drawing">
   <a class="work-image" href="images/work-07.jpg" target="_blank" rel="noopener">
-    <img src="images/work-07.jpg" alt="모두 살기 위해 태어난 거야" loading="lazy" onerror="this.style.display='none'">
+    <img src="images/work-07.jpg" alt="모두 살기 위해 태어난 거야" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">모두 살기 위해 태어난 거야</h3>
   <p class="meta">2024 · Ink on paper</p>
@@ -736,7 +733,7 @@
 
                       <article class="work-item" data-year="2025" data-medium="painting-drawing">
   <a class="work-image" href="images/work-08.jpg" target="_blank" rel="noopener">
-    <img src="images/work-08.jpg" alt="I found you" loading="lazy" onerror="this.style.display='none'">
+    <img src="images/work-08.jpg" alt="I found you" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">I found you</h3>
   <p class="meta">2025 · Oil on panel</p>
@@ -745,10 +742,8 @@
         
         <article class="work-item" data-year="2024" data-medium="painting-drawing">
   <a class="work-image" href="images/work-09.jpg" target="_blank" rel="noopener">
-    <img src="images/work-09.jpg" alt="그곳에 다다를 때까지"
-      loading="lazy" style="
-      object-position: left center"
-      onerror="this.style.display='none'">
+    <img src="images/work-09.jpg" alt="그곳에 다다를 때까지" loading="lazy" decoding="async" style="
+      object-position: left center" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">그곳에 다다를 때까지</h3>
   <p class="meta">2024 · Pencil and watercolor on paper</p>
@@ -757,85 +752,79 @@
 
                 <article class="work-item" data-year="2025" data-medium="painting-drawing">
   <a class="work-image" href="images/work-10.jpg" target="_blank" rel="noopener">
-    <img src="images/work-10.jpg" alt="Something's coming" loading="lazy" onerror="this.style.display='none'">
+    <img src="images/work-10.jpg" alt="Something's coming" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">Something's coming</h3>
   <p class="meta">2025 · Oil on canvas</p>
   <p class="meta dimensions">130.3 × 80.3 cm</p>
 </article>
 
-        <article class="work-item" data-year="2025" data-medium="ceramics">
+        <article class="work-item" hidden data-year="2025" data-medium="ceramics">
   <a class="work-image" href="images/work-11.jpg" target="_blank" rel="noopener">
-    <img src="images/work-11.jpg" alt="언덕" loading="lazy" onerror="this.style.display='none'">
+    <img data-src="images/work-11.jpg" alt="언덕" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">언덕</h3>
   <p class="meta">2025 · Ceramic</p>
-  <p class="meta dimensions"><15 × 27 × 30cm></p>
+  <p class="meta dimensions">&lt;15 × 27 × 30cm&gt;</p>
 </article>
 
-               <article class="work-item" data-year="2025" data-medium="ceramics">
+               <article class="work-item" hidden data-year="2025" data-medium="ceramics">
   <a class="work-image" href="images/work-12.jpg" target="_blank" rel="noopener">
-    <img src="images/work-12.jpg" alt="Titan" loading="lazy" onerror="this.style.display='none'">
+    <img data-src="images/work-12.jpg" alt="Titan" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">Titan</h3>
   <p class="meta">2025 · Ceramic</p>
-  <p class="meta dimensions"><30 × 42 × 63 cm ></p>
+  <p class="meta dimensions">&lt;30 × 42 × 63 cm &gt;</p>
 </article>
 
-                       <article class="work-item" data-year="2026" data-medium="painting-drawing">
+                       <article class="work-item" hidden data-year="2026" data-medium="painting-drawing">
   <a class="work-image" href="images/work-13.jpg" target="_blank" rel="noopener">
-    <img src="images/work-13.jpg" alt="Here, There and Everywhere" loading="lazy" onerror="this.style.display='none'">
+    <img data-src="images/work-13.jpg" alt="Here, There and Everywhere" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">Here, There and Everywhere</h3>
   <p class="meta">2026 · Wall painting</p>
-  <p class="meta dimensions"><240 × 152 cm></p>
+  <p class="meta dimensions">&lt;240 × 152 cm&gt;</p>
 </article>
 
-                       <article class="work-item" data-year="2024" data-medium="painting-drawing">
+                       <article class="work-item" hidden data-year="2024" data-medium="painting-drawing">
   <a class="work-image" href="images/work-14.jpg" target="_blank" rel="noopener">
-    <img src="images/work-14.jpg" alt="어디로 갈 거야?" loading="lazy" onerror="this.style.display='none'">
+    <img data-src="images/work-14.jpg" alt="어디로 갈 거야?" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">어디로 갈 거야?</h3>
   <p class="meta">2024 · Ink on paper</p>
   <p class="meta dimensions">42 × 30 cm</p>
 </article>
 
-                       <article class="work-item" data-year="2025" data-medium="painting-drawing">
+                       <article class="work-item" hidden data-year="2025" data-medium="painting-drawing">
   <a class="work-image" href="images/work-15.jpg" target="_blank" rel="noopener">
-    <img src="images/work-15.jpg" alt="Sunset" loading="lazy" onerror="this.style.display='none'">
+    <img data-src="images/work-15.jpg" alt="Sunset" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">Sunset</h3>
   <p class="meta">2025 · watercolor on paper</p>
   <p class="meta dimensions"><!-- 사이즈 입력 --></p>
 </article>
 
-                               <article class="work-item" data-year="2024,2025,2026" data-medium="painting-drawing">
+                               <article class="work-item" hidden data-year="2024,2025,2026" data-medium="painting-drawing">
   <a class="work-image" href="images/work-16.jpg" target="_blank" rel="noopener">
-    <img src="images/work-16.jpg" alt="타오르는 세계" loading="lazy" onerror="this.style.display='none'">
+    <img data-src="images/work-16.jpg" alt="타오르는 세계" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">타오르는 세계</h3>
   <p class="meta">2024~ · Ink on paper</p>
-  <p class="meta dimensions"><30 × 21 cm each></p>
+  <p class="meta dimensions">&lt;30 × 21 cm each&gt;</p>
 </article>
 
-                                    <article class="work-item" data-year="2024" data-medium="Ceramics">
+                                    <article class="work-item" hidden data-year="2024" data-medium="Ceramics">
   <a class="work-image" href="images/work-17.jpg" target="_blank" rel="noopener">
-    <img src="images/work-17.jpg" alt="머리 다섯 달린 새" loading="lazy" onerror="this.style.display='none'">
+    <img data-src="images/work-17.jpg" alt="머리 다섯 달린 새" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">머리 다섯 달린 새</h3>
   <p class="meta">2024 · Ceramic</p>
-  <p class="meta dimensions"><9 × 12 × 31.5 cm></p>
+  <p class="meta dimensions">&lt;9 × 12 × 31.5 cm&gt;</p>
 </article>
 
-        <article class="work-item" data-year="2025" data-medium="moving-image">
-  <a class="work-image"
-    href="videos/work-18.mp4"
-    data-video-src="videos/work-18.mp4"
-    data-video-poster="images/work-18.jpeg">
-    <img src="images/work-18.jpeg"
-      alt="Rhythm"
-      loading="lazy"
-      onerror="this.style.display='none'">
+        <article class="work-item" hidden data-year="2025" data-medium="moving-image">
+  <a class="work-image" href="videos/work-18.mp4" data-video-src="videos/work-18.mp4" data-video-poster="images/work-18.jpeg">
+    <img data-src="images/work-18.jpeg" alt="Rhythm" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
 
   <h3 class="work-title">Rhythm</h3>
@@ -843,35 +832,27 @@
   <p class="meta dimensions">00:50</p>
 </article>
 
-                               <article class="work-item" data-year="2023" data-medium="printmaking">
+                               <article class="work-item" hidden data-year="2023" data-medium="printmaking">
   <a class="work-image" href="images/work-19.jpg" target="_blank" rel="noopener">
-    <img src="images/work-19.jpg" alt="괜찮을 거야" loading="lazy" onerror="this.style.display='none'">
+    <img data-src="images/work-19.jpg" alt="괜찮을 거야" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">괜찮을 거야</h3>
   <p class="meta">2023 · monotype</p>
   <p class="meta dimensions">28.3 × 19 cm</p>
 </article>
 
-                                       <article class="work-item" data-year="2025" data-medium="painting-drawing">
+                                       <article class="work-item" hidden data-year="2025" data-medium="painting-drawing">
   <a class="work-image" href="images/work-20.jpg" target="_blank" rel="noopener">
-    <img src="images/work-20.jpg" alt="머리 여섯 달린 새" loading="lazy" onerror="this.style.display='none'">
+    <img data-src="images/work-20.jpg" alt="머리 여섯 달린 새" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">머리 여섯 달린 새</h3>
   <p class="meta">2025 · Oil on panel</p>
   <p class="meta dimensions">50 × 50 cm</p>
 </article>
 
-                <article class="work-item" data-year="2023" data-medium="moving-image">
-  <a class="work-image"
-    href="videos/work-21.mp4"
-    data-video-src="videos/work-21.mp4"
-    data-video-poster="images/work-21.jpeg">
-    <img src="images/work-21.jpeg"
-      alt="Silly Love Songs"
-      loading="lazy"
-      style="
-      object-position: left center"
-      onerror="this.style.display='none'">
+                <article class="work-item" hidden data-year="2023" data-medium="moving-image">
+  <a class="work-image" href="videos/work-21.mp4" data-video-src="videos/work-21.mp4" data-video-poster="images/work-21.jpeg">
+    <img data-src="images/work-21.jpeg" alt="Silly Love Songs" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
 
   <h3 class="work-title">Silly Love Songs</h3>
@@ -879,9 +860,9 @@
   <p class="meta dimensions">1:40</p>
 </article>
 
-                                       <article class="work-item" data-year="2025" data-medium="painting-drawing">
+                                       <article class="work-item" hidden data-year="2025" data-medium="painting-drawing">
   <a class="work-image" href="images/work-22.jpg" target="_blank" rel="noopener">
-    <img src="images/work-22.jpg" alt="뿌리를 끌어안은 사람" loading="lazy" onerror="this.style.display='none'">
+    <img data-src="images/work-22.jpg" alt="뿌리를 끌어안은 사람" loading="lazy" decoding="async" onerror="this.style.display='none'">
   </a>
   <h3 class="work-title">뿌리를 끌어안은 사람</h3>
   <p class="meta">2025 · Oil on panel</p>
@@ -890,6 +871,7 @@
         
       </div>
 
+      <div class="archive-sentinel" aria-hidden="true"></div>
       <p class="empty-state" aria-live="polite" hidden>No works in this selection.</p>
     </section>
 
@@ -907,12 +889,12 @@
   </main>
 
   <div class="lightbox" id="work-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-lightbox-title">
-    <button class="lightbox-close" type="button" aria-label="Close enlarged work">&times;</button>
+    <button class="lightbox-close" type="button" aria-label="Close enlarged work">×</button>
     <div class="lightbox-inner">
       <div class="lightbox-image-wrap">
         <img class="lightbox-image" src="" alt="">
-        <div class="lightbox-video-stage" hidden>
-          <video class="lightbox-video" controls playsinline preload="metadata"></video>
+        <div class="lightbox-video-stage" hidden="">
+          <video class="lightbox-video" controls="" playsinline="" preload="metadata"></video>
           <button class="lightbox-play" type="button" aria-label="Play video"></button>
         </div>
       </div>
@@ -929,44 +911,144 @@
       medium: "all"
     };
 
+    const initialBatchSize = window.matchMedia("(max-width: 760px)").matches ? 8 : 10;
+    const batchSize = window.matchMedia("(max-width: 760px)").matches ? 8 : 10;
     const filterButtons = document.querySelectorAll(".filter-button");
-    const workItems = document.querySelectorAll(".work-item");
+    const workItems = Array.from(document.querySelectorAll(".work-item"));
     const emptyState = document.querySelector(".empty-state");
+    const archiveSentinel = document.querySelector(".archive-sentinel");
     const searchForm = document.querySelector(".work-search");
     const searchInput = document.querySelector(".work-search-input");
     const searchClear = document.querySelector(".search-clear");
     let searchQuery = "";
+    let matchingItems = [];
+    let revealedCount = 0;
+    let filterGeneration = 0;
+    let loadingGeneration = null;
 
     function normalizeSearchValue(value) {
       return value.normalize("NFKC").toLocaleLowerCase();
     }
 
+    function itemMatchesFilters(item, searchTerms) {
+      const itemYears = item.dataset.year.split(/[,\s]+/).filter(Boolean);
+      const matchesYear =
+        activeFilters.year === "all" || itemYears.includes(activeFilters.year);
+      const itemMedia = item.dataset.medium.split(/[,\s]+/).filter(Boolean);
+      const matchesMedium =
+        activeFilters.medium === "all" || itemMedia.includes(activeFilters.medium);
+      const searchableText = normalizeSearchValue(
+        `${item.textContent} ${item.dataset.year} ${item.dataset.medium}`
+      );
+      const matchesSearch = searchTerms.every((term) =>
+        searchableText.includes(term)
+      );
+
+      return matchesYear && matchesMedium && matchesSearch;
+    }
+
+    function loadThumbnail(item) {
+      const image = item.querySelector(".work-image img");
+      const pendingSource = image?.dataset.src;
+
+      if (!image || !pendingSource) {
+        return Promise.resolve();
+      }
+
+      return new Promise((resolve) => {
+        let settled = false;
+
+        const finish = () => {
+          if (settled) {
+            return;
+          }
+
+          settled = true;
+          image.removeEventListener("load", finish);
+          image.removeEventListener("error", finish);
+          resolve();
+        };
+
+        image.addEventListener("load", finish, { once: true });
+        image.addEventListener("error", finish, { once: true });
+        image.loading = "eager";
+        image.src = pendingSource;
+        image.removeAttribute("data-src");
+
+        if (image.complete) {
+          finish();
+        }
+      });
+    }
+
+    function shouldPrepareAnotherBatch() {
+      const sentinelTop = archiveSentinel.getBoundingClientRect().top;
+      return sentinelTop <= window.innerHeight + 250;
+    }
+
+    async function revealNextBatch(requestedSize = batchSize) {
+      const generation = filterGeneration;
+
+      if (
+        loadingGeneration === generation ||
+        revealedCount >= matchingItems.length
+      ) {
+        return;
+      }
+
+      loadingGeneration = generation;
+
+      const nextCount = Math.min(
+        revealedCount + requestedSize,
+        matchingItems.length
+      );
+      const batch = matchingItems.slice(revealedCount, nextCount);
+
+      await Promise.all(batch.map(loadThumbnail));
+
+      if (generation !== filterGeneration) {
+        return;
+      }
+
+      batch.forEach((item) => {
+        item.hidden = false;
+      });
+
+      revealedCount = nextCount;
+      loadingGeneration = null;
+
+      window.requestAnimationFrame(() => {
+        if (
+          revealedCount < matchingItems.length &&
+          shouldPrepareAnotherBatch()
+        ) {
+          revealNextBatch();
+        }
+      });
+    }
+
     function applyFilters() {
-      let visibleCount = 0;
+      filterGeneration += 1;
+      loadingGeneration = null;
+      revealedCount = 0;
+
       const searchTerms = searchQuery.split(/\s+/).filter(Boolean);
+      matchingItems = workItems.filter((item) =>
+        itemMatchesFilters(item, searchTerms)
+      );
 
       workItems.forEach((item) => {
-        const itemYears = item.dataset.year.split(/[,\s]+/).filter(Boolean);
-        const matchesYear = activeFilters.year === "all" || itemYears.includes(activeFilters.year);
-        const itemMedia = item.dataset.medium.split(/[,\s]+/).filter(Boolean);
-        const matchesMedium = activeFilters.medium === "all" || itemMedia.includes(activeFilters.medium);
-        const searchableText = normalizeSearchValue(
-          `${item.textContent} ${item.dataset.year} ${item.dataset.medium}`
-        );
-        const matchesSearch = searchTerms.every((term) => searchableText.includes(term));
-        const shouldShow = matchesYear && matchesMedium && matchesSearch;
-
-        item.hidden = !shouldShow;
-
-        if (shouldShow) {
-          visibleCount += 1;
-        }
+        item.hidden = true;
       });
 
       emptyState.textContent = searchQuery
         ? "No works match this search."
         : "No works in this selection.";
-      emptyState.hidden = visibleCount !== 0;
+      emptyState.hidden = matchingItems.length !== 0;
+
+      if (matchingItems.length > 0) {
+        revealNextBatch(initialBatchSize);
+      }
     }
 
     filterButtons.forEach((button) => {
@@ -974,11 +1056,13 @@
         const group = button.dataset.filterGroup;
         activeFilters[group] = button.dataset.filterValue;
 
-        document.querySelectorAll(`[data-filter-group="${group}"]`).forEach((groupButton) => {
-          const isActive = groupButton === button;
-          groupButton.classList.toggle("is-active", isActive);
-          groupButton.setAttribute("aria-pressed", String(isActive));
-        });
+        document
+          .querySelectorAll(`[data-filter-group="${group}"]`)
+          .forEach((groupButton) => {
+            const isActive = groupButton === button;
+            groupButton.classList.toggle("is-active", isActive);
+            groupButton.setAttribute("aria-pressed", String(isActive));
+          });
 
         applyFilters();
       });
@@ -1011,11 +1095,28 @@
       searchInput.focus();
     });
 
+    const archiveObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          revealNextBatch();
+        }
+      },
+      {
+        rootMargin: "250px 0px",
+        threshold: 0
+      }
+    );
+
+    archiveObserver.observe(archiveSentinel);
+    applyFilters();
+
     const workTriggers = document.querySelectorAll("#work .work-image");
     const workLightbox = document.querySelector("#work-lightbox");
     const lightboxClose = workLightbox.querySelector(".lightbox-close");
     const lightboxImage = workLightbox.querySelector(".lightbox-image");
-    const lightboxVideoStage = workLightbox.querySelector(".lightbox-video-stage");
+    const lightboxVideoStage = workLightbox.querySelector(
+      ".lightbox-video-stage"
+    );
     const lightboxVideo = workLightbox.querySelector(".lightbox-video");
     const lightboxPlay = workLightbox.querySelector(".lightbox-play");
     const lightboxTitle = workLightbox.querySelector(".lightbox-title");
@@ -1043,7 +1144,8 @@
         lightboxImage.src = "";
         lightboxImage.alt = "";
         lightboxVideo.src = videoSource;
-        lightboxVideo.poster = trigger.dataset.videoPoster || thumbnail.currentSrc || thumbnail.src;
+        lightboxVideo.poster =
+          trigger.dataset.videoPoster || thumbnail.currentSrc || thumbnail.src;
         lightboxVideo.load();
         lightboxPlay.hidden = false;
       } else {
@@ -1055,7 +1157,8 @@
         lightboxImage.alt = thumbnail.alt;
       }
 
-      lightboxTitle.textContent = workItem.querySelector(".work-title").textContent;
+      lightboxTitle.textContent =
+        workItem.querySelector(".work-title").textContent;
       lightboxMeta.textContent = captionLines.join("\n");
       workLightbox.classList.add("is-open");
       workLightbox.setAttribute("aria-hidden", "false");
@@ -1110,11 +1213,15 @@
     });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && workLightbox.classList.contains("is-open")) {
+      if (
+        event.key === "Escape" &&
+        workLightbox.classList.contains("is-open")
+      ) {
         closeWorkLightbox();
       }
     });
   </script>
-</body>
-</html>
 
+
+
+</body></html>
