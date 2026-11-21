@@ -680,7 +680,7 @@
       <div class="grid">
         <article class="work-item" data-year="2021" data-medium="painting-drawing">
   <a class="work-image" href="images/work-50.jpg" target="_blank" rel="noopener">
-    <img src="images/work-50.jpg" alt="Lullaby" loading="lazy" decoding="async" style="object-position: 89% 50%;" onerror="this.style.display='none'">
+    <div class="work-crop-slot" style="--work-pan-x: 98.06%; --work-pan-y: 50%"><div class="work-crop-window" style="--work-crop-ratio: 1.341174461079314; --work-crop-width: 101.7128968658475%; --work-crop-height: 102.026857354904%; --work-crop-left: -0.30224850584637575%; --work-crop-top: -0.8107438697825554%"><img src="images/work-50.jpg" alt="Lullaby" loading="lazy" decoding="async" data-crop-rect="0.29715848742861123,0.7946376971725734,98.31594918773507,98.01340803054092,1.341174461079314" data-crop-pan="98.06,50" onerror="this.style.display='none'"></div></div>
   </a>
   <h3 class="work-title">Lullaby</h3>
   <p class="meta">2021 · Oil on paper</p>
@@ -905,7 +905,7 @@
 
         <article class="work-item" hidden data-year="2026" data-medium="ceramics">
   <a class="work-image" href="images/work-01.jpg" target="_blank" rel="noopener">
-    <img data-src="images/work-01.jpg" alt="숨이 머무는 곳" loading="lazy" decoding="async" style="object-position: 50% 100%;" onerror="this.style.display='none'">
+    <div class="work-crop-slot" style="--work-pan-x: 32.59%; --work-pan-y: 50%"><div class="work-crop-window" style="--work-crop-ratio: 0.8619662959558672; --work-crop-width: 100%; --work-crop-height: 108.3065457372056%; --work-crop-left: 0%; --work-crop-top: -4.433652239963909%"><img data-src="images/work-01.jpg" alt="숨이 머무는 곳" loading="lazy" decoding="async" data-crop-rect="0,4.093614296149466,100,92.330522886991,0.8619662959558672" data-crop-pan="32.59,50" onerror="this.style.display='none'"></div></div>
   </a>
   <h3 class="work-title">숨이 머무는 곳</h3>
   <p class="meta">2026 · Ceramic</p>
@@ -1627,6 +1627,172 @@
         if (!box.classList.contains("is-open") || gallery.length < 2) return;
         if (event.key === "ArrowRight") show(index + 1);
         if (event.key === "ArrowLeft") show(index - 1);
+      });
+    })();
+  </script>
+  <style id="yunseo-crop-styles">
+    .work-image > .work-crop-slot { position: relative; display: block; overflow: hidden; }
+    .work-image > .work-crop-slot > .work-crop-window {
+      position: absolute;
+      top: var(--work-pan-y, 50%);
+      left: var(--work-pan-x, 50%);
+      width: max(100cqw, calc(100cqh * var(--work-crop-ratio)));
+      transform: translate(calc(-1 * var(--work-pan-x, 50%)), calc(-1 * var(--work-pan-y, 50%)));
+    }
+    .work-image img[data-crop-zoom],
+    .yunseo-crop-frame[data-cropped]:not(.work-crop-slot) :is(.lightbox-image, .yunseo-crop-image) {
+      position: relative;
+      width: var(--work-zoom, 100%);
+      height: var(--work-zoom, 100%);
+      max-width: none;
+      max-height: none;
+      left: var(--work-offset-x, 0%);
+      top: var(--work-offset-y, 0%);
+      object-fit: cover;
+    }
+    .yunseo-crop-frame, .yunseo-crop-frame:not(.work-crop-slot) > .work-crop-window { display: contents; }
+    .yunseo-crop-frame[data-cropped]:not(.work-crop-slot) {
+      display: block;
+      flex: none;
+      width: min(100%, calc((100vh - 80px) * .8));
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+    .lightbox.has-gallery .yunseo-crop-frame[data-cropped]:not(.work-crop-slot) {
+      width: min(100%, calc((100vh - 148px) * .8));
+    }
+    .yunseo-crop-frame[data-cropped]:not(.work-crop-slot) :is(.lightbox-image, .yunseo-crop-image) {
+      display: block;
+      object-position: var(--work-crop-position, 50% 50%);
+    }
+    .work-crop-slot {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      container-type: size;
+    }
+    .work-crop-window {
+      position: relative;
+      width: min(100cqw, calc(100cqh * var(--work-crop-ratio)));
+      aspect-ratio: var(--work-crop-ratio);
+      overflow: hidden;
+    }
+    .work-crop-slot .work-crop-window > img,
+    #work-lightbox .work-crop-slot .work-crop-window > .lightbox-image {
+      display: block;
+      position: absolute;
+      width: var(--work-crop-width);
+      height: var(--work-crop-height);
+      max-width: none;
+      max-height: none;
+      left: var(--work-crop-left);
+      top: var(--work-crop-top);
+      object-fit: cover;
+    }
+    .yunseo-crop-frame.work-crop-slot { height: calc(100vh - 80px); flex: none; }
+    .lightbox.has-gallery .yunseo-crop-frame.work-crop-slot { height: calc(100vh - 148px); }
+    .yunseo-crop-dialog {
+      width: min(calc(100% - 32px), calc((100vh - 80px) * .8));
+      max-width: none;
+      border: 0;
+      background: #fff;
+      padding: 28px 0 0;
+    }
+    .yunseo-crop-dialog:has(.work-crop-slot) { width: min(calc(100vw - 32px), 1000px); }
+    .yunseo-crop-dialog::backdrop { background: rgba(255,255,255,.98); }
+    .yunseo-crop-dialog button { position: absolute; top: 0; right: 0; border: 0; background: none; font-size: 20px; cursor: pointer; }
+    @media (max-width: 620px) {
+      .yunseo-crop-frame[data-cropped]:not(.work-crop-slot),
+      .lightbox.has-gallery .yunseo-crop-frame[data-cropped]:not(.work-crop-slot) { width: min(100%, 56vh); }
+      .yunseo-crop-frame.work-crop-slot,
+      .lightbox.has-gallery .yunseo-crop-frame.work-crop-slot {
+        height: min(70vh, calc((100vw - 36px) / var(--work-crop-ratio)));
+      }
+      .yunseo-crop-dialog { width: min(calc(100% - 32px), 56vh); }
+    }
+  </style>
+  <script id="yunseo-crop-addon">
+    (function installLightboxCrop() {
+      const box = document.querySelector("#work-lightbox");
+      const image = box?.querySelector(".lightbox-image");
+      const frame = document.createElement("div");
+      const cropWindow = document.createElement("div");
+      frame.className = "yunseo-crop-frame";
+      cropWindow.className = "work-crop-window";
+      frame.append(cropWindow);
+      let activeTrigger = null;
+
+      const setFrameCrop = thumbnail => {
+        frame.toggleAttribute("data-cropped", Boolean(thumbnail));
+        frame.classList.toggle("work-crop-slot", Boolean(thumbnail?.dataset.cropRect));
+        if (!thumbnail) return;
+        if (thumbnail.dataset.cropRect) {
+          cropWindow.style.cssText = thumbnail.closest(".work-crop-window").style.cssText;
+          frame.style.setProperty("--work-crop-ratio", cropWindow.style.getPropertyValue("--work-crop-ratio"));
+        } else {
+          for (const property of ["--work-zoom", "--work-offset-x", "--work-offset-y"]) {
+            frame.style.setProperty(property, thumbnail.style.getPropertyValue(property));
+          }
+          frame.style.setProperty("--work-crop-position", thumbnail.style.objectPosition);
+        }
+      };
+
+      const croppedThumbnail = trigger => trigger && !trigger.dataset.videoSrc
+        ? trigger.querySelector("img[data-crop-zoom], img[data-crop-rect]") : null;
+
+      if (!image) {
+        // Older work pages open images as links and have no lightbox to update.
+        const dialog = document.createElement("dialog");
+        const close = document.createElement("button");
+        const enlarged = document.createElement("img");
+        dialog.className = "yunseo-crop-dialog";
+        dialog.setAttribute("aria-label", "Enlarged work");
+        close.type = "button";
+        close.textContent = "\u00d7";
+        close.setAttribute("aria-label", "Close enlarged work");
+        enlarged.className = "yunseo-crop-image";
+        cropWindow.append(enlarged);
+        dialog.append(close, frame);
+        document.body.append(dialog);
+        close.addEventListener("click", () => dialog.close());
+        dialog.addEventListener("click", event => { if (event.target === dialog) dialog.close(); });
+        document.addEventListener("click", event => {
+          const trigger = event.target.closest("#work .work-image");
+          const thumbnail = croppedThumbnail(trigger);
+          if (!thumbnail || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          setFrameCrop(thumbnail);
+          enlarged.src = trigger.href;
+          enlarged.alt = thumbnail.alt;
+          dialog.showModal();
+        });
+        return;
+      }
+
+      image.before(frame);
+      cropWindow.append(image);
+      function syncLightboxCrop() {
+        const firstThumbnail = box.querySelector(".lightbox-thumbnails:not([hidden]) button");
+        const isDetail = firstThumbnail && firstThumbnail.getAttribute("aria-pressed") === "false";
+        const thumbnail = box.classList.contains("is-open") && !image.hidden
+          && image.src === activeTrigger?.href && !isDetail ? croppedThumbnail(activeTrigger) : null;
+        setFrameCrop(thumbnail);
+      }
+
+      document.addEventListener("click", event => {
+        const trigger = event.target.closest("#work .work-image");
+        if (trigger) {
+          activeTrigger = trigger;
+          queueMicrotask(syncLightboxCrop);
+        }
+      }, true);
+      const observer = new MutationObserver(syncLightboxCrop);
+      observer.observe(box, { attributes: true, attributeFilter: ["class"] });
+      observer.observe(image, { attributes: true, attributeFilter: ["src", "hidden"] });
+      const strip = box.querySelector(".lightbox-thumbnails");
+      if (strip) observer.observe(strip, {
+        childList: true, subtree: true, attributes: true, attributeFilter: ["aria-pressed", "hidden"]
       });
     })();
   </script>
