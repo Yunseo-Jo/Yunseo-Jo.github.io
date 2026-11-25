@@ -26,14 +26,14 @@
     .page {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 40px 24px 80px;
+      padding: 30px 24px 64px;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       gap: 24px;
-      padding-bottom: 64px;
+      padding-bottom: 24px;
       border-bottom: 1px solid #ddd;
     }
 
@@ -60,7 +60,7 @@
     }
 
     .page-title {
-      margin: 64px 0 72px;
+      margin: 30px 0 32px;
       font-size: 32px;
       font-weight: 400;
     }
@@ -70,8 +70,8 @@
       grid-template-columns: minmax(0, 11fr) minmax(300px, 9fr);
       column-gap: 36px;
       align-items: start;
-      padding-bottom: 88px;
-      margin-bottom: 88px;
+      padding-bottom: 30px;
+      margin-bottom: 32px;
       border-bottom: 1px solid #ddd;
     }
 
@@ -83,13 +83,14 @@
       display: flex;
       min-width: 0;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .gallery {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 10;
+      max-height: clamp(220px, 43svh, 380px);
       overflow: hidden;
       background: #fff;
       cursor: pointer;
@@ -144,7 +145,7 @@
       flex: 0 0 calc((100% - 32px) / 5);
       min-width: 68px;
       width: auto;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 2 / 1;
       padding: 0;
       overflow: hidden;
       border: 0;
@@ -268,8 +269,12 @@
     @media (max-width: 760px) {
       .exhibition {
         grid-template-columns: 1fr;
-        padding-bottom: 64px;
-        margin-bottom: 64px;
+        padding-bottom: 18px;
+        margin-bottom: 20px;
+      }
+
+      .gallery {
+        max-height: clamp(132px, 25svh, 244px);
       }
 
       .thumbnails {
@@ -289,32 +294,54 @@
       }
 
       .thumbnail {
-        flex: 0 0 76px;
+        flex: 0 0 64px;
+        min-width: 0;
       }
 
       .exhibition-info {
-        margin-top: 18px;
+        margin-top: 12px;
         padding-top: 0;
+      }
+
+      .exhibition-meta {
+        margin-bottom: 4px;
+      }
+
+      .exhibition-title {
+        margin-bottom: 8px;
+      }
+
+      .exhibition-details {
+        margin-bottom: 8px;
+      }
+
+      .credits {
+        margin-bottom: 0;
+      }
+
+      .description-wrap {
+        margin-top: 18px;
       }
     }
 
     @media (max-width: 620px) {
       .page {
-        padding: 28px 18px 64px;
+        padding: 18px 18px 56px;
       }
 
       header {
         display: block;
-        padding-bottom: 40px;
+        padding-bottom: 14px;
       }
 
       nav {
         justify-content: flex-start;
-        margin-top: 20px;
+        column-gap: 14px;
+        margin-top: 10px;
       }
 
       .page-title {
-        margin: 48px 0 56px;
+        margin: 20px 0 18px;
         font-size: 28px;
       }
 
@@ -324,6 +351,34 @@
 
       .exhibition-title {
         font-size: 21px;
+      }
+    }
+
+    @media (max-width: 620px) and (max-height: 740px) {
+      .page-title {
+        margin-block: 16px 14px;
+      }
+
+      .exhibition {
+        padding-bottom: 14px;
+        margin-bottom: 16px;
+      }
+
+      .gallery {
+        max-height: max(120px, 20svh);
+      }
+
+      .exhibition-info {
+        margin-top: 8px;
+      }
+
+      .exhibition-details {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .credits {
+        line-height: 1.5;
       }
     }
 
@@ -979,7 +1034,7 @@
             ? Array.from(info.querySelectorAll(".description"))
             : [];
 
-          if (!info || !descriptions.length) {
+          if (!info || !descriptions.some((description) => description.textContent.trim())) {
             return null;
           }
 
