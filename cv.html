@@ -158,9 +158,13 @@
         margin-bottom: 20px;
       }
 
-      .year {
-        margin-bottom: 4px;
-      }
+    }
+  </style>
+  <style id="cv-year-groups">
+    .cv-section .year-entries > p + p { margin-top: 6px; }
+    @media (max-width: 620px) {
+      .cv-section .item > .year { margin-bottom: 4px; }
+      .cv-section .item > .year:empty { display: none; }
     }
   </style>
 </head>
@@ -178,7 +182,7 @@
       </nav>
     </header>
 
-        <section class="title">
+    <section class="title">
       <h2>CV</h2>
       <p>조윤서 (b. 2000)<br>Yunseo Jo (b. 2000)</p>
     </section>
@@ -187,8 +191,8 @@
       <h3>학력</h3>
       <div>
         <div class="item">
-          <p class="year">2027</p>
-          <p>한국예술종합학교 조형예술과 예술전문사 졸업</p>
+          <p class="year">2025-</p>
+          <p>한국예술종합학교 조형예술과 예술전문사 재학</p>
         </div>
         <div class="item">
           <p class="year">2023</p>
@@ -206,11 +210,10 @@
         </div>
         <div class="item">
           <p class="year">2024</p>
-          <p><em>《춤추고 날아오르고 찌르기》</em>, 갤러리 메일란, 서울</p>
-        </div>
-        <div class="item">
-          <p class="year is-repeat" aria-hidden="true">2024</p>
-          <p><em>《테바 Tebah》</em>, 전시공간 리플랫, 서울</p>
+          <div class="year-entries">
+            <p><em>《춤추고 날아오르고 찌르기》</em>, 갤러리 메일란, 서울</p>
+            <p><em>《테바 Tebah》</em>, 전시공간 리플랫, 서울</p>
+          </div>
         </div>
         <div class="item">
           <p class="year">2023</p>
@@ -224,10 +227,6 @@
       <div>
         <div class="item">
           <p class="year">2026</p>
-          <p><em>《 ( ) 의 작은 귀를 생각함 》</em>, 상계예술마당, 서울</p>
-        </div>
-        <div class="item">
-          <p class="year is-repeat" aria-hidden="true">2026</p>
           <p><em>《Humming Room》</em>, 울트라, 서울</p>
         </div>
         <div class="item">
@@ -236,11 +235,10 @@
         </div>
         <div class="item">
           <p class="year">2024</p>
-          <p><em>《US_이질적 조화》</em>, 큐아트스페이스, 파주</p>
-        </div>
-        <div class="item">
-          <p class="year is-repeat" aria-hidden="true">2024</p>
-          <p><em>《네 필의 말》</em>, 한국예술종합학교 복도갤러리, 서울</p>
+          <div class="year-entries">
+            <p><em>《US_이질적 조화》</em>, 큐아트스페이스, 파주</p>
+            <p><em>《네 필의 말》</em>, 한국예술종합학교 복도갤러리, 서울</p>
+          </div>
         </div>
         <div class="item">
           <p class="year">2023</p>
@@ -264,25 +262,23 @@
       <div>
         <div class="item">
           <p class="year">2023</p>
-          <p><em>&lt;Angels&gt;</em>, 독립출판</p>
-        </div>
-        <div class="item">
-          <p class="year is-repeat" aria-hidden="true">2023</p>
-          <p><em>&lt;ADAM, EVE and a DOGGY&gt;</em>, 독립출판</p>
+          <div class="year-entries">
+            <p><em>&lt;Angels&gt;</em>, 독립출판</p>
+            <p><em>&lt;ADAM, EVE and a DOGGY&gt;</em>, 독립출판</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="language-title">
-      <h2>English CV</h2>
-    </section>
-
+  <h2>English CV</h2>
+</section>
     <section class="cv-section divider">
       <h3>Education</h3>
       <div>
         <div class="item">
-          <p class="year">2027</p>
-          <p>MFA in Fine Arts, Korea National University of Arts</p>
+          <p class="year">2025-</p>
+          <p>MFA candidate in Fine Arts, Korea National University of Arts</p>
         </div>
         <div class="item">
           <p class="year">2023</p>
@@ -300,11 +296,10 @@
         </div>
         <div class="item">
           <p class="year">2024</p>
-          <p><em>《Dance, Soar, Prickle》</em>, Gallery Meilan, Seoul, KR</p>
-        </div>
-        <div class="item">
-          <p class="year is-repeat" aria-hidden="true">2024</p>
-          <p><em>《Tebah》</em>, RE:PLAT, Seoul, KR</p>
+          <div class="year-entries">
+            <p><em>《Dance, Soar, Prickle》</em>, Gallery Meilan, Seoul, KR</p>
+            <p><em>《Tebah》</em>, RE:PLAT, Seoul, KR</p>
+          </div>
         </div>
         <div class="item">
           <p class="year">2023</p>
@@ -318,10 +313,6 @@
       <div>
         <div class="item">
           <p class="year">2026</p>
-          <p><em>《Thinking about ( )&#39;s tiny ears》</em>, Sanggye Art Space, Seoul, KR</p>
-        </div>
-        <div class="item">
-          <p class="year is-repeat" aria-hidden="true">2026</p>
           <p><em>《Humming Room》</em>, ULTRA, Seoul, KR</p>
         </div>
         <div class="item">
@@ -330,11 +321,10 @@
         </div>
         <div class="item">
           <p class="year">2024</p>
-          <p><em>《US_Heterogeneous Harmony》</em>, Q-Art Space, Paju, KR</p>
-        </div>
-        <div class="item">
-          <p class="year is-repeat" aria-hidden="true">2024</p>
-          <p><em>《Four Horses: Faster than》</em>, Korea National University of Arts Theory Gallery, Seoul, KR</p>
+          <div class="year-entries">
+            <p><em>《US_Heterogeneous Harmony》</em>, Q-Art Space, Paju, KR</p>
+            <p><em>《Four Horses: Faster than》</em>, Korea National University of Arts Theory Gallery, Seoul, KR</p>
+          </div>
         </div>
         <div class="item">
           <p class="year">2023</p>
@@ -358,11 +348,10 @@
       <div>
         <div class="item">
           <p class="year">2023</p>
-          <p><em>&lt;Angels&gt;</em>, independent publication</p>
-        </div>
-        <div class="item">
-          <p class="year is-repeat" aria-hidden="true">2023</p>
-          <p><em>&lt;ADAM, EVE and a DOGGY&gt;</em>, independent publication</p>
+          <div class="year-entries">
+            <p><em>&lt;Angels&gt;</em>, independent publication</p>
+            <p><em>&lt;ADAM, EVE and a DOGGY&gt;</em>, independent publication</p>
+          </div>
         </div>
       </div>
     </section>
