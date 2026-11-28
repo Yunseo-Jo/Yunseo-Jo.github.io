@@ -314,6 +314,11 @@
 
       .exhibition-title {
         margin-bottom: 8px;
+        font-size: 17px;
+      }
+
+      .page-title {
+        font-size: 23px;
       }
 
       .exhibition-details {
@@ -324,6 +329,19 @@
         margin-bottom: 0;
       }
 
+      .credits .artist-credits {
+        grid-template-columns: max-content minmax(0, 1fr);
+        column-gap: 12px;
+      }
+
+      .artist-credit-line {
+        display: block;
+      }
+
+      .artist-credit-name {
+        white-space: nowrap;
+      }
+
       .description-wrap {
         margin-top: 22px;
       }
@@ -331,31 +349,37 @@
 
     @media (max-width: 620px) {
       .page {
-        padding: 18px 18px 56px;
+        padding: 22px 18px 56px;
       }
 
       header {
         display: block;
-        padding-bottom: 17px;
+        padding-bottom: 20px;
       }
 
       nav {
         justify-content: flex-start;
         column-gap: 14px;
-        margin-top: 13px;
+        margin-top: 20px;
       }
 
       .page-title {
         margin: 22px 0 22px;
-        font-size: 28px;
       }
 
       .gallery {
         aspect-ratio: 3 / 2;
       }
+    }
 
-      .exhibition-title {
-        font-size: 21px;
+    @media (max-width: 360px) {
+      nav {
+        column-gap: 9px;
+      }
+
+      .credits .artist-credits {
+        grid-template-columns: 1fr;
+        row-gap: 3px;
       }
     }
 
@@ -1030,6 +1054,32 @@
 
   <script>
     (() => {
+      document.querySelectorAll(".credits dt").forEach((label) => {
+        if (!/^참여\s*작가$/.test(label.textContent.trim())) return;
+
+        const value = label.nextElementSibling;
+        if (!value?.matches("dd") || value.children.length) return;
+        const names = value.textContent.split(",").map((name) => name.trim());
+        if (names.length < 2 || names.some((name) => !name)) return;
+
+        const lines = [];
+        names.forEach((name, index) => {
+          if (index % 5 === 0) {
+            const line = document.createElement("span");
+            line.className = "artist-credit-line";
+            lines.push(line);
+          }
+
+          const nameNode = document.createElement("span");
+          nameNode.className = "artist-credit-name";
+          nameNode.textContent = name + (index < names.length - 1 ? "," : "");
+          lines[lines.length - 1].append(nameNode, index < names.length - 1 ? " " : "");
+        });
+
+        label.parentElement.classList.add("artist-credits");
+        value.replaceChildren(...lines);
+      });
+
       const mobileBreakpoint = 760;
       const mobileDescriptionHeight = 120;
       const exhibitionEntries = Array.from(document.querySelectorAll(".exhibition")).map(
