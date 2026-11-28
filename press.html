@@ -230,6 +230,20 @@
       }
     }
   </style>
+  <style id="press-issue-styles">
+    .press-issues { margin: 8px 0 0; padding: 0; list-style: none; }
+    .press-issues a {
+      display: inline-block;
+      padding: 3px 0;
+      color: #555;
+      font-size: 13px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+    }
+    .press-issues a:hover,
+    .press-issues a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+    .press-issues a:focus-visible { outline: 1px solid #111; outline-offset: 3px; }
+  </style>
 </head>
 
 <body>
@@ -300,13 +314,17 @@
             <span class="press-outlet">Magazine K-ARTS</span>
             <span class="press-kind">Illustration Series</span>
           </span>
-          <span class="press-content">
+          <div class="press-content">
             <strong class="press-title">K-Arts Toon</strong>
-            <span class="press-note">Multiple issues</span>
-          </span>
-          <a class="external-link selected-issue" href="https://webzine.karts.ac.kr/magazine/48/index.html" target="_blank" rel="noopener noreferrer">
-            Selected issue <span aria-hidden="true">&#8599;</span>
-          </a>
+            <ul class="press-issues" aria-label="K-Arts Toon issues">
+              <li><a href="https://art.karts.ac.kr/magazine/50/" target="_blank" rel="noopener noreferrer">Vol. 50 · Summer 2024 (Contents) <span aria-hidden="true">&#8599;</span></a></li>
+              <li><a href="https://art.karts.ac.kr/magazine/49/news-3.html" target="_blank" rel="noopener noreferrer">Vol. 49 · Spring 2024 <span aria-hidden="true">&#8599;</span></a></li>
+              <li><a href="https://webzine.karts.ac.kr/magazine/48/index.html" target="_blank" rel="noopener noreferrer">Vol. 48 · Winter 2023 (Contents) <span aria-hidden="true">&#8599;</span></a></li>
+              <li><a href="https://art.karts.ac.kr/magazine/47/news-3.html" target="_blank" rel="noopener noreferrer">Vol. 47 · Autumn 2023 <span aria-hidden="true">&#8599;</span></a></li>
+              <li><a href="https://art.karts.ac.kr/magazine/46/news-3.html" target="_blank" rel="noopener noreferrer">Vol. 46 · Summer 2023 <span aria-hidden="true">&#8599;</span></a></li>
+              <li><a href="https://art.karts.ac.kr/magazine/40/" target="_blank" rel="noopener noreferrer">Vol. 40 · 2021 (Contents) <span aria-hidden="true">&#8599;</span></a></li>
+            </ul>
+          </div>
         </article>
 
         <article class="press-item">
@@ -315,13 +333,12 @@
             <span class="press-outlet">한국예술종합학교신문</span>
             <span class="press-kind">Editorial Cartoon Series</span>
           </span>
-          <span class="press-content">
+          <div class="press-content">
             <strong class="press-title">만평 연재</strong>
-            <span class="press-note">Multiple issues</span>
-          </span>
-          <a class="external-link selected-issue" href="http://news.karts.ac.kr/?p=8805" target="_blank" rel="noopener noreferrer">
-            Selected issue <span aria-hidden="true">&#8599;</span>
-          </a>
+            <ul class="press-issues" aria-label="만평 연재">
+              <li><a href="http://news.karts.ac.kr/?p=8805" target="_blank" rel="noopener noreferrer">만평 보기 <span aria-hidden="true">&#8599;</span></a></li>
+            </ul>
+          </div>
         </article>
       </div>
     </section>
